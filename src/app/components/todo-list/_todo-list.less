@@ -1,0 +1,32 @@
+.todo-list-directive{
+    input{
+        background-color: @background-color !important;
+        border-color: transparent !important;
+        color: @text-color;
+        box-shadow: none;
+        text-overflow: ellipsis;
+
+        &.completed{
+            color: @background-border-color;
+            text-decoration: line-through;
+        }
+        &[disabled]:hover {
+            cursor: default;
+        }
+    }
+
+    .input-group input{
+        cursor: pointer !important;
+    }
+
+    .input-group-addon{
+        border-color: transparent !important;
+        box-shadow: none;
+        background-color: @background-color !important;
+    }
+
+    .checkbox{
+        cursor: pointer;
+        margin: 0px;
+    }
+}

@@ -1,0 +1,137 @@
+@import "styles/_base";
+@import "styles/_theme";
+@import "styles/_mixins";
+
+
+@import "components/file-upload-btn/_file-upload-btn.less";
+@import "components/login-form/_login-form";
+@import "components/modal/_modal.less";
+@import "components/profile-form/_profile-form.less";
+@import "components/progress-bar/_progress-bar.less";
+@import "components/sidebar/_sidebar";
+@import "components/sortable-accordition/_sortable-accordition.less";
+@import "components/todo-list/_todo-list";
+
+body {
+    padding: 0px;
+    min-width: 450px;
+    background-color: @background-color;
+}
+
+input[disabled]{
+    cursor: default;
+}
+
+ul, form {
+    list-style-type: none;
+    margin: 5px 0;
+    padding: 5px 0;
+
+    li{
+        margin: 5px 0;
+    }
+}
+
+.panel-group .panel + .panel{
+    margin-top: 0px;
+}
+
+
+.navbar{
+    z-index: 1003;
+    position: fixed;
+    width: 100%;
+    border-radius: 0px;
+}
+
+nav {
+    .navbar-header{
+        float: none;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .pull-right{
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+}
+
+.row{
+    margin-top: 50px;
+}
+
+
+// USERS LIST LESS ---> USERS LIST DIRECTIVE
+
+.users-list{
+    margin-top: 10px;
+
+    .list-group-item{
+        margin-top: 5px;
+        color: @light-text-color !important;
+        background-color: @dark-background-color;
+        cursor: pointer;
+
+        -webkit-transition: background-color 0.4s ease-out 0.05s;
+        -moz-transition: background-color 0.4s ease-out 0.05s;
+        -o-transition: background-color 0.4s ease-out 0.05s;
+        transition: background-color 0.4s ease-out 0.05s;
+
+        .c-info:hover{
+            color: @light-text-color;
+        }
+
+        &:hover{
+
+            background-color: darken(@dark-background-color, 10%);
+
+            .img-frame{
+                opacity: 1;
+            }
+        }
+
+        .img-frame{
+            background-color: white;
+            border-radius: 50%;
+            border: 2px solid white;
+            opacity: 0.9;
+        }
+
+        .additional-info{
+            font-size: .75em;
+        }
+
+        .progress-block{
+            display: table;
+            width: 100%;
+            vertical-align: center;
+
+            [class*="-progress"]{
+                border-right: 1px solid @light-text-color;
+                font-size: 0.65em;
+                margin-top: 3px;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .should-progress{
+                border-left: 3px solid @should-topic-color;
+                background-image: linear-gradient(to right,  @should-topic-color, transparent);
+            }
+
+            .could-progress{
+                border-left: 3px solid @could-topic-color;
+                background-image: linear-gradient(to right,  @could-topic-color, transparent);
+            }
+
+            .could-not-progress{
+                border-left: 3px solid @could-not-topic-color;
+                background-image: linear-gradient(to right,  @could-not-topic-color, transparent);
+            }
+        }
+    }
+}

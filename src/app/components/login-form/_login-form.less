@@ -1,0 +1,30 @@
+.login{
+    text-align: center;
+
+    h1{
+        margin-bottom: 25px;
+    }
+
+    .input-group{
+        margin: 5px;
+
+        .input-group-addon{
+            min-width: 150px;
+            color: white;
+            background-color: @brand-info;
+
+            -webkit-transition: background 0.3s ease-in;
+               -moz-transition: background 0.3s ease-in;
+                -ms-transition: background 0.3s ease-in;
+                 -o-transition: background 0.3s ease-in;
+                    transition: background 0.3s ease-in;
+        }
+
+        &.has-error{
+            .input-group-addon{
+                background-color: @brand-danger;
+            }
+        }
+    }
+
+}

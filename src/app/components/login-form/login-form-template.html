@@ -1,0 +1,13 @@
+<div class="login">
+    <div class="form-group">
+        <h1> Please, login </h1>
+        <div class="input-group input-group-lg" ng-class="{'has-error': isErrored}">
+          <input type="text" class="form-control" aria-describedby="basic-addon2" ng-model="email" ng-keypress="onKeyPress($event.keyCode)" autofocus>
+          <span class="input-group-addon">Email</span>
+        </div>
+        <div class="input-group input-group-lg" ng-class="{'has-error': isErrored}">
+          <input type="password" class="form-control" aria-describedby="basic-addon2" ng-model="password" ng-keypress="onKeyPress($event.keyCode)">
+          <span class="input-group-addon">Password</span>
+        </div>
+    </div>
+</div>

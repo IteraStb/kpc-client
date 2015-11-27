@@ -1,0 +1,17 @@
+node_modules/
+bower_components/
+dist/
+.tmp/
+*.log
+/.buildpath
+/.cache
+/.metadata
+/.project
+/.settings
+atlassian*
+/nbproject
+/sitemap
+/.idea
+/.gitattributes
+/vendor
+.DS_Store

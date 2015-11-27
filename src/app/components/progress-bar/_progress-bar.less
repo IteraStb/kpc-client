@@ -1,0 +1,33 @@
+.heading-progress-bar {
+    position: relative;
+
+    .progress-bar-line{
+        z-index: 99;
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        -webkit-transition: width 1s ease-out 0.1s;
+        -moz-transition: width 1s ease-out 0.1s;
+        -o-transition: width 1s ease-out 0.1s;
+        transition: width 1s ease-out 0.1s;
+
+        left: 0px !important;
+        height: 8%;
+        bottom: 0;
+        vertical-align: middle;
+
+        .progress-bar-title{
+            color: grey;
+            font-weight: bold;
+            font-style: italic;
+            overflow: hidden;
+        }
+    }
+}
+
+.progress-bar-line{
+        background-color: rgba(0, 0, 0, 0.12);
+}
+

@@ -1,0 +1,70 @@
+.sidebar-directive{
+    display: flex;
+    align-items: center;
+    margin: 0px 35px 0 5px;
+
+    .navbar-collapse{
+        padding: 0 !important;
+    }
+
+    .btn-menu-wrapper{
+        a {
+            color: @nav-title-color;
+            overflow: hidden;
+
+            &:hover{
+                color: white;
+            }
+        }
+    }
+
+    .sidebar-wrapper{
+        position: fixed;
+        z-index: 1003;
+        width: 250px;
+        left: -5px;
+        top: 50px;
+        background-color: @dark-background-color;
+
+        ul{
+            margin: 0;
+            padding: 0;
+
+            li{
+                margin: 0;
+
+                &.active{
+                    background-color: @dark-nav-background;
+                }
+
+                ul{
+                    font-size: 0.75em;
+                }
+
+                .glyphicon{
+                    line-height: 1.7em;
+                }
+
+                a {
+                    width: 100%;
+                    display: block;
+                    padding: 5px 20px;
+                    color: @nav-title-color;
+                    overflow: hidden;
+                    border-bottom: 1px solid darken(@nav-title-color, 15%);
+                    text-decoration: none;
+
+                    -webkit-transition: background-color 0.4s ease-out 0.05s;
+                    -moz-transition: background-color 0.4s ease-out 0.05s;
+                    -o-transition: background-color 0.4s ease-out 0.05s;
+                    transition: background-color 0.4s ease-out 0.05s;
+
+                    &:hover{
+                        color: white;
+                        background-color: darken(@dark-background-color, 10%);
+                    }
+                }
+            }
+        }
+    }
+}

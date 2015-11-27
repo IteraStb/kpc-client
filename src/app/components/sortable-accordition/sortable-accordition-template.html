@@ -1,0 +1,47 @@
+<accordion close-others="oneAtATime">
+    <ul ui-sortable="sortableOptions" ng-model="list">
+        <li ng-repeat="topic in list | prioritize:config.priority"
+            ng-init="goals = (topic | getRecentLogEntry).goals"
+            ng-click="gotoAnchor(topic.id)"
+            id="{{topic.id}}">
+
+            <accordion-group
+                            ng-class="{
+                                'should-topic'    : topic.priority == 'should',
+                                'could-topic'     : topic.priority == 'could',
+                                'could-not-topic' : topic.priority == 'could-not'
+                            }" >
+                <accordion-heading>
+                    <heading-progress-bar val="((goals | calculateRatio:'completed')*100)">
+                        <div class="flex">
+                            <div class="info-block">
+                                <div class="priority-heading" title="Topic priority: {{topic.priority}}">{{topic.priority}}</div>
+                                <div class="title-heading"    title="Topic name: {{topic.title}}">{{topic.title}}</div>
+                                <div class="area-heading"     title="Topic area: {{topic.area}}">{{topic.area}}</div>
+                            </div>
+                            <div class="score-block">
+                                <div class="flex">
+                                    <div class="percentage-title">
+                                        Completed: <div>{{((goals | calculateRatio:'completed')*100).toFixed(0) +'%'}}</div>
+                                    </div>
+                                    <div class="score-title" title="Total score: {{(topic | getRecentLogEntry).score}}">
+                                        {{(topic | getRecentLogEntry).score}}
+                                    </div>
+                                </div>
+
+                                <div class="date-title"  title="Last modified: {{(topic | getRecentLogEntry).date | date: 'longDate'}}">
+                                    {{(topic | getRecentLogEntry).date | date: 'longDate'}}
+                                </div>
+                            </div>                        
+                        </div>
+                    </heading-progress-bar>
+                </accordion-heading>
+                <todo-list
+                            list="goals"
+                            on-change-cb="onChange">
+                </todo-list>
+            </accordion-group>
+
+        </li>
+    </ul>
+</accordion>

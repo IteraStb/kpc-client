@@ -1,0 +1,28 @@
+<form class="profile-form" ng-init="passwords={}; error=error || {}; error.profile=error.profile || {}; error.passwords=error.passwords || {}">
+  <div class="input-group" ng-class="{'has-error': error.profile.first_name}">
+    <span class="input-group-addon">First name</span>
+    <input type="text" class="form-control" placeholder="Your first name" ng-model="profile.first_name">
+  </div>
+  <div class="input-group" ng-class="{'has-error': error.profile.last_name}">
+    <span class="input-group-addon">Last name</span>
+    <input type="text" class="form-control" placeholder="Your last name" ng-model="profile.last_name">
+  </div>
+  <hr>
+  <div class="input-group" ng-class="{'has-error': error.profile.email}">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+    <input type="email" class="form-control" placeholder="Your email" ng-model="profile.email">
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="onSubmit(profile)">Submit</button>
+  <br/>
+  <br/>
+  <hr>
+  <div class="input-group" ng-class="{'has-error': error.passwords.password_old}">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <input type="password" class="form-control" placeholder="Old password" ng-model="passwords.password_old">
+  </div>
+  <div class="input-group" ng-class="{'has-error': error.passwords.password_new}">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <input type="password" class="form-control" placeholder="New password" ng-model="passwords.password_new">
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="onChangePassword(passwords)">Change password</button>
+</form>

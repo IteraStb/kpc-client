@@ -1,0 +1,12 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <sidebar items="menu" on-click-menu-item="onClickMenuItem"></sidebar>
+            <div ui-view="navcontrols" style="flex-grow:2;"></div>
+            <button class="btn btn-warning btn-file navbar-btn pull-right" ng-click="logout()"> Logout </button>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div ui-view="content"></div>
+</div>
