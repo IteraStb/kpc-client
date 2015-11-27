@@ -1,5 +1,4 @@
 Knowledge checklist
-============
 
 This application is supposed to help keep tracking the users' knowledge progress. 
 
@@ -21,9 +20,8 @@ To start developing in the project:
 
 
 4. Install npm modules:
-```bash
-npm install
-```
+  `bash`
+  `npm install`
 
 5. Install bower modules:
 ```bash
