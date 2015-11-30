@@ -4,51 +4,33 @@ This application is supposed to help keep tracking the users' knowledge progress
 
 ## Development
 
-To start developing in the project:
+To start developing the project:
 
-1. Clone server part of the project from here:
+1. Read and do all the steps from the README in server part of the project 
 
-    `https://gitlab.com/Twiggy_Sweet/server-knowledge-checklist`
+2. Clone the client part of the project from here:
 
-2. Download and install mongodb to store all data
+    `https://github.com/IteraStb/kpc-client.git`
 
-    `https://www.mongodb.org/downloads#production`
+3. Install npm modules:
+    bash
+    `npm install`
 
-3. Configure and initiate local folder for your database
+4. Install bower modules:
+    `bash`
+    `bower install`
 
-  `C:\mongodb\bin\mongod.exe --dbpath d:\test\mongodb\data`
-
-
-4. Install npm modules:
-  `bash`
-  `npm install`
-
-5. Install bower modules:
-```bash
-bower install
-```
-
-6. Run scripts to populate db with dummy data from 
-  
-  `scripts/db`
-  `for example: node ./script/db/set_users_collection.js`
-
-
-7.   Run `node server.js` from the root
-
-8. Run the server using:
+5. Run the server using:
 
     gulp task
 
-    ```bash
-    gulp serve
-    ```
+    `bash
+    gulp serve`
 
     or npm command
 
-    ```bash
-    npm run webserver
-    ```
+    `bash
+    npm run webserver`
 
 The `serve` tasks starts a static file server, which serves the AngularJS application, and a watch task which watches all files for changes and lints, builds and injects them into the index.html accordingly.
 
