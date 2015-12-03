@@ -13,7 +13,7 @@ To start developing the project:
     `https://github.com/IteraStb/kpc-client.git`
 
 3. Install npm modules:
-    bash
+    `bash`
     `npm install`
 
 4. Install bower modules:
@@ -24,13 +24,13 @@ To start developing the project:
 
     gulp task
 
-    `bash
-    gulp serve`
+    `bash`
+    `gulp serve`
 
     or npm command
 
-    `bash
-    npm run webserver`
+    `bash`
+    `npm run webserver`
 
 The `serve` tasks starts a static file server, which serves the AngularJS application, and a watch task which watches all files for changes and lints, builds and injects them into the index.html accordingly.
 
