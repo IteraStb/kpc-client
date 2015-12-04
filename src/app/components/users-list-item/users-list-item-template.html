@@ -1,4 +1,4 @@
-<div class="list-group-item" ng-click="onViewProfile(user.id)">
+<div class="list-group-item" ng-click="onViewKnowledgeList($event, user.id)">
     <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
         <div class="img-frame">
             <img src="{{user.avatar}}" alt="{{user.first_name}} {{user.last_name}}" class="img-responsive img-circle" />
@@ -8,7 +8,7 @@
         <span class="name">{{user.first_name}} {{user.last_name}}</span>&nbsp;
         <span class="glyphicon glyphicon-envelope text-muted c-info" data-toggle="tooltip" title="{{user.email || ''}}"></span>
         <span class="glyphicon glyphicon-list-alt text-muted c-info"
-              ng-click="onViewKnowledgeList(user.id)"
+              ng-click="onViewProfile($event, user.id)"
               data-toggle="tooltip"
               title="{{user.email || ''}}">
         </span>

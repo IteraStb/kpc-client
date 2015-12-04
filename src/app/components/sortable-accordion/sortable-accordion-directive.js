@@ -1,10 +1,10 @@
 angular
     .module('knowledgeList')
-    .directive('sortableAccordition', function(){
+    .directive('sortableAccordion', function(){
         'use strict';
 
         return {
-            templateUrl: '/components/sortable-accordition/sortable-accordition-template.html',
+            templateUrl: '/components/sortable-accordion/sortable-accordion-template.html',
             restrict: 'AE',
             transclude: true,
             scope: {
