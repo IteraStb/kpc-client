@@ -1,10 +1,10 @@
 {
     "priority" : {
         "should" : {
-            "count" : 3
+            "count" : 1
         },
         "could" : {
-            "count" : 3
+            "count" : 1
         }
     }
 }

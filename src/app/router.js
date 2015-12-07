@@ -56,7 +56,7 @@ angular.
                         controller: 'SettingsUsersListCtrl',
                         templateUrl: './pages/settings/users-list/users-list-template.html'
                     }
-                },
+                }
             }).
             state('knowledge_list', {
                 parent: 'base',
@@ -68,7 +68,7 @@ angular.
                     },
                     content: {
                         controller: 'KnowledgeListCtrl',
-                        templateUrl: './pages/knowledge-list/content-template.html',
+                        templateUrl: './pages/knowledge-list/content-template.html'
                     }
                 },
                 resolve: {

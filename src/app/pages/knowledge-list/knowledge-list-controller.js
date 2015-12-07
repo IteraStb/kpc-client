@@ -1,45 +1,162 @@
-angular.
-    module('knowledgeList').
-    controller('KnowledgeListCtrl',
-            ['$rootScope',
-                '$scope',
-                '$state',
-                '$stateParams',
-                'usersRepository',
-                'config',
-                '$modal',
-                'authorization',
+angular.module('knowledgeList').
+controller('KnowledgeListCtrl',
+  ['$rootScope',
+    '$scope',
+    '$state',
+    '$stateParams',
+    'usersRepository',
+    'config',
+    '$modal',
+    'authorization',
 
-        function($rootScope, $scope, $state, $stateParams, usersRepository, config, $modal, authorization){
-            'use strict';
-            var userId    = $stateParams.userId;
-            $scope.rights = authorization.getUserRights();
-            $scope.config = config;
+    function ($rootScope,
+              $scope,
+              $state,
+              $stateParams,
+              usersRepository,
+              config,
+              $modal,
+              authorization) {
+      'use strict';
+      var userId = $stateParams.userId,
 
-            $scope.onGoalsChange = function(){
-                usersRepository.updateKnList($scope.userData);
-            };
-
-            $scope.onFileUpload = function(contents){
-                try{
-                    var user = JSON.parse(contents);
-                    usersRepository.createUser(user).then(function(storedUser){
-                        $state.go('knowledge_list', { userId: storedUser.id });
-                    });
-
-                } catch(error){
-                    var scope = $rootScope.$new();
-                    scope.msg = 'Invalid file data. Please, load json-ish file.';
-
-                    $modal.open({
-                        scope: scope,
-                        templateUrl: '/components/modal/error-template.html',
-                    });
+        //todo Remove this mock after backend is added to retrieve knowledge list from DB
+          knowledgeListMock = {
+            knowledge_list: [{
+              'id': 'jasmine',
+              'title': 'Jasmine',
+              'area': 'fremework/lib',
+              'log': [
+                {
+                  'date': '2015-01-15T15:16:58.366Z',
+                  'score': '7',
+                  'goals': [
+                    {
+                      'title': 'Finish reading book',
+                      'completed': 'false'
+                    },
+                    {
+                      'title': 'Kill Bill!',
+                      'completed': 'true'
+                    }
+                  ]
+                },
+                {
+                  'date': '2015-01-15T15:16:58.366Z',
+                  'score': '7',
+                  'goals': [
+                    {
+                      'title': 'Finish reading book',
+                      'completed': 'false'
+                    },
+                    {
+                      'title': 'Kill Bill!',
+                      'completed': 'false'
+                    }
+                  ]
                 }
-            };
+              ]
+            },
+            {
+              'id': 'Angular',
+              'title': 'Angular',
+              'area': 'fremework',
+              'log': [
+                {
+                  'date': '2015-11-15T15:16:58.366Z',
+                  'score': '4',
+                  'goals': [
+                    {
+                      'title': 'Finish reading book',
+                      'completed': 'false'
+                    },
+                    {
+                      'title': 'Feed a cat!',
+                      'completed': 'false'
+                    }
+                  ]
+                },
+                {
+                  'date': '2015-11-23T15:16:58.366Z',
+                  'score': '7',
+                  'goals': [
+                    {
+                      'title': 'Finish reading book',
+                      'completed': 'false'
+                    },
+                    {
+                      'title': 'Feed a cat!',
+                      'completed': 'false'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+            'id': 'Git',
+            'title': 'Git',
+            'area': 'version control',
+            'log': [
+              {
+                'date': '2015-11-15T15:16:58.366Z',
+                'score': '4',
+                'goals': [
+                  {
+                    'title': 'Finish reading book',
+                    'completed': 'false'
+                  },
+                  {
+                    'title': 'Feed a cat!',
+                    'completed': 'false'
+                  }
+                ]
+              },
+              {
+                'date': '2015-11-23T15:16:58.366Z',
+                'score': '5',
+                'goals': [
+                  {
+                    'title': 'Finish reading book',
+                    'completed': 'false'
+                  },
+                  {
+                    'title': 'Feed a cat!',
+                    'completed': 'false'
+                  }
+                ]
+              }
+            ]
+          }
+            ]
+          },
+          userDataMerged = {};
+      $scope.rights = authorization.getUserRights();
+      $scope.config = config;
 
-            usersRepository.getUser(userId).then(function(userData){
-                $scope.userData = userData;
-            });
+      $scope.onGoalsChange = function () {
+        usersRepository.updateKnList($scope.userData);
+      };
 
-        }]);
+      $scope.onFileUpload = function (contents) {
+        try {
+          var user = JSON.parse(contents);
+          usersRepository.createUser(user).then(function (storedUser) {
+            $state.go('knowledge_list', {userId: storedUser.id});
+          });
+
+        } catch (error) {
+          var scope = $rootScope.$new();
+          scope.msg = 'Invalid file data. Please, load json-ish file.';
+
+          $modal.open({
+            scope: scope,
+            templateUrl: '/components/modal/error-template.html'
+          });
+        }
+      };
+
+      usersRepository.getUser(userId).then(function (userData) {
+        userDataMerged = angular.extend(userData, knowledgeListMock);
+        $scope.userData = userDataMerged;
+      });
+    }]);
