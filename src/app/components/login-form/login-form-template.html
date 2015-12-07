@@ -2,12 +2,13 @@
   <div class="form-group">
     <h1> Please, login </h1>
 
-    <div class="input-group input-group-lg" ng-class="{'has-error': isErrored}">
-      <input type="text" class="form-control" aria-describedby="basic-addon2" ng-model="email" ng-keypress="onKeyPress($event.keyCode)" autofocus placeholder="Email">
+    <div class="input-group-lg" ng-class="{'has-error': isErrored}">
+      <label for="form-email" class="sr-only">Email</label>
+      <input type="text" class="form-control" aria-describedby="basic-addon2" id="form-email" ng-model="email" ng-keypress="onKeyPress($event.keyCode)" autofocus placeholder="Email">
     </div>
-    <div class="input-group input-group-lg" ng-class="{'has-error': isErrored}">
-      <input type="password" class="form-control" aria-describedby="basic-addon2" ng-model="password" ng-keypress="onKeyPress($event.keyCode)" placeholder="Password">
+    <div class="input-group-lg" ng-class="{'has-error': isErrored}">
+      <input type="password" class="form-control cus-input-field" aria-describedby="basic-addon2" ng-model="password" ng-keypress="onKeyPress($event.keyCode)" placeholder="Password">
     </div>
-    <button class="btn btn-primary" ng-click="onLoginClick()">Let me in</button>
+    <button class="cust-login-button btn btn-primary btn-lg center-block " ng-click="onLoginClick()">Let me in</button>
   </div>
 </div>

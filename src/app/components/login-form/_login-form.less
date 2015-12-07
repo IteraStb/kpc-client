@@ -1,30 +1,42 @@
-.login{
+.login {
+  h1 {
+    margin-bottom: 25px;
     text-align: center;
+  }
 
-    h1{
-        margin-bottom: 25px;
+  //styles for the login button
+  .form-group {
+    .cust-login-button {
+      background-color: @login-button__color;
+      border-color: @login-button__color;
+      transition: all .3s ease;
+      &:hover {
+        background-color: @login-button__hover-color;
+      }
+    }
+  }
+
+  .input-group-lg {
+    margin: 5px;
+
+    .form-control {
+      border-radius: 0;
     }
 
-    .input-group{
-        margin: 5px;
-
-        .input-group-addon{
-            min-width: 150px;
-            color: white;
-            background-color: @brand-info;
-
-            -webkit-transition: background 0.3s ease-in;
-               -moz-transition: background 0.3s ease-in;
-                -ms-transition: background 0.3s ease-in;
-                 -o-transition: background 0.3s ease-in;
-                    transition: background 0.3s ease-in;
-        }
-
-        &.has-error{
-            .input-group-addon{
-                background-color: @brand-danger;
-            }
-        }
+    .input-group-addon {
+      min-width: 150px;
+      color: white;
+      background-color: @brand-info;
+      -webkit-transition: background 0.3s ease-in;
+      -ms-transition: background 0.3s ease-in;
+      -o-transition: background 0.3s ease-in;
+      transition: background 0.3s ease-in;
     }
 
+    &.has-error {
+      .input-group-addon {
+        background-color: @brand-danger;
+      }
+    }
+  }
 }
