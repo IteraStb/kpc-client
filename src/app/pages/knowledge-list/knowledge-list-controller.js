@@ -17,146 +17,130 @@ controller('KnowledgeListCtrl',
               config,
               $modal,
               authorization) {
-      'use strict';
-      var userId = $stateParams.userId,
+                'use strict';
+                var userId = $stateParams.userId,
 
-        //todo Remove this mock after backend is added to retrieve knowledge list from DB
-          knowledgeListMock = {
-            knowledge_list: [{
-              'id': 'jasmine',
-              'title': 'Jasmine',
-              'area': 'fremework/lib',
-              'log': [
-                {
-                  'date': '2015-01-15T15:16:58.366Z',
-                  'score': '7',
-                  'goals': [
-                    {
-                      'title': 'Finish reading book',
-                      'completed': 'false'
+                //todo Remove this mock after backend is added to retrieve knowledge list from DB
+                  knowledgeListMock = {
+                    knowledge_list: [{
+                      'id': 'jasmine',
+                      'title': 'Jasmine',
+                      'area': 'fremework/lib',
+                      'log': [
+                        {
+                          'date': '2015-01-15T15:16:58.366Z',
+                          'score': '7',
+                          'goals': [
+                            {
+                              'title': 'Finish reading book',
+                              'completed': 'false'
+                            },
+                            {
+                              'title': 'Kill Bill!',
+                              'completed': 'true'
+                            }
+                          ]
+                        },
+                        {
+                          'date': '2015-01-15T15:16:58.366Z',
+                          'score': '7',
+                          'goals': [
+                            {
+                              'title': 'Finish reading book',
+                              'completed': 'false'
+                            },
+                            {
+                              'title': 'Kill Bill!',
+                              'completed': 'false'
+                            }
+                          ]
+                        }
+                      ]
                     },
                     {
-                      'title': 'Kill Bill!',
-                      'completed': 'true'
-                    }
-                  ]
-                },
-                {
-                  'date': '2015-01-15T15:16:58.366Z',
-                  'score': '7',
-                  'goals': [
-                    {
-                      'title': 'Finish reading book',
-                      'completed': 'false'
+                      'id': 'Angular',
+                      'title': 'Angular',
+                      'area': 'fremework',
+                      'log': [
+                        {
+                          'date': '2015-11-15T15:16:58.366Z',
+                          'score': '4',
+                          'goals': [
+                            {
+                              'title': 'Finish reading book',
+                              'completed': 'false'
+                            },
+                            {
+                              'title': 'Feed a cat!',
+                              'completed': 'false'
+                            }
+                          ]
+                        },
+                        {
+                          'date': '2015-11-23T15:16:58.366Z',
+                          'score': '7',
+                          'goals': [
+                            {
+                              'title': 'Finish reading book',
+                              'completed': 'false'
+                            },
+                            {
+                              'title': 'Feed a cat!',
+                              'completed': 'false'
+                            }
+                          ]
+                        }
+                      ]
                     },
                     {
-                      'title': 'Kill Bill!',
-                      'completed': 'false'
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              'id': 'Angular',
-              'title': 'Angular',
-              'area': 'fremework',
-              'log': [
-                {
-                  'date': '2015-11-15T15:16:58.366Z',
-                  'score': '4',
-                  'goals': [
-                    {
-                      'title': 'Finish reading book',
-                      'completed': 'false'
-                    },
-                    {
-                      'title': 'Feed a cat!',
-                      'completed': 'false'
-                    }
-                  ]
-                },
-                {
-                  'date': '2015-11-23T15:16:58.366Z',
-                  'score': '7',
-                  'goals': [
-                    {
-                      'title': 'Finish reading book',
-                      'completed': 'false'
-                    },
-                    {
-                      'title': 'Feed a cat!',
-                      'completed': 'false'
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-            'id': 'Git',
-            'title': 'Git',
-            'area': 'version control',
-            'log': [
-              {
-                'date': '2015-11-15T15:16:58.366Z',
-                'score': '4',
-                'goals': [
-                  {
-                    'title': 'Finish reading book',
-                    'completed': 'false'
-                  },
-                  {
-                    'title': 'Feed a cat!',
-                    'completed': 'false'
+                    'id': 'Git',
+                    'title': 'Git',
+                    'area': 'version control',
+                    'log': [
+                      {
+                        'date': '2015-11-15T15:16:58.366Z',
+                        'score': '4',
+                        'goals': [
+                          {
+                            'title': 'Finish reading book',
+                            'completed': 'false'
+                          },
+                          {
+                            'title': 'Feed a cat!',
+                            'completed': 'false'
+                          }
+                        ]
+                      },
+                      {
+                        'date': '2015-11-23T15:16:58.366Z',
+                        'score': '5',
+                        'goals': [
+                          {
+                            'title': 'Finish reading book',
+                            'completed': 'false'
+                          },
+                          {
+                            'title': 'Feed a cat!',
+                            'completed': 'false'
+                          }
+                        ]
+                      }
+                    ]
                   }
-                ]
-              },
-              {
-                'date': '2015-11-23T15:16:58.366Z',
-                'score': '5',
-                'goals': [
-                  {
-                    'title': 'Finish reading book',
-                    'completed': 'false'
+                    ]
                   },
-                  {
-                    'title': 'Feed a cat!',
-                    'completed': 'false'
-                  }
-                ]
-              }
-            ]
-          }
-            ]
-          },
-          userDataMerged = {};
-      $scope.rights = authorization.getUserRights();
-      $scope.config = config;
+                  userDataMerged = {};
 
-      $scope.onGoalsChange = function () {
-        usersRepository.updateKnList($scope.userData);
-      };
+                $scope.rights = authorization.getUserRights();
+                $scope.config = config;
 
-      $scope.onFileUpload = function (contents) {
-        try {
-          var user = JSON.parse(contents);
-          usersRepository.createUser(user).then(function (storedUser) {
-            $state.go('knowledge_list', {userId: storedUser.id});
-          });
+                $scope.onGoalsChange = function () {
+                  usersRepository.updateKnList($scope.userData);
+                };
 
-        } catch (error) {
-          var scope = $rootScope.$new();
-          scope.msg = 'Invalid file data. Please, load json-ish file.';
-
-          $modal.open({
-            scope: scope,
-            templateUrl: '/components/modal/error-template.html'
-          });
-        }
-      };
-
-      usersRepository.getUser(userId).then(function (userData) {
-        userDataMerged = angular.extend(userData, knowledgeListMock);
-        $scope.userData = userDataMerged;
-      });
-    }]);
+                //merge user object with knowledge mock data
+                usersRepository.getUser(userId).then(function (userData) {
+                  userDataMerged = angular.extend(userData, knowledgeListMock);
+                  $scope.userData = userDataMerged;
+                });
+              }]);
