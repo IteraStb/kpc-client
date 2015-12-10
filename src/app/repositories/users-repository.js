@@ -1,123 +1,64 @@
 angular.
-    module('knowledgeList').
-    factory('usersRepository', ['$http', '$q', 'utils', function($http, $q, utils){
-        'use strict';
+module('knowledgeList').
+factory('usersRepository', ['$http', '$q', 'utils', function ($http, $q, utils) {
+  'use strict';
 
-        var users;
+  //gets users to displays them in the list
+  function getUsers() {
+    var defer = $q.defer();
 
-        function _saveToLocal(data){
-            localStorage.setItem('KnListApp.Users', angular.toJson(data));
-        }
+    $http.get('/api/users')
+      .then(function (usersResponse) {
+        defer.resolve(usersResponse.data);
+      }, function (error) {
+        defer.reject(error);
+    });
 
-        function _getFromLocal(){
-            return localStorage.getItem('KnListApp.Users');
-        }
+    return defer.promise;
+  }
 
-        function getUsers(){
-            var defer = $q.defer();
-            var localDataStr = _getFromLocal();
+  function getUser(userId) {
+    var defer = $q.defer(),
+        user;
 
-            if (users){
+    $http.get('/api/users/show/' + userId).then(function (response) {
+      user = response.data;
+      defer.resolve(user);
 
-                defer.resolve(users);
+    }, function (error) {
+      defer.reject(error);
+    });
 
-            } else if (localDataStr) {
+    return defer.promise;
+  }
 
-                users = JSON.parse(localDataStr);
-                defer.resolve(users);
+  //todo refactor $http.post to use then() promise method
+  function changePassword(id, passwords) {
+    var defer = $q.defer();
 
-            } else {
+    if (!utils.validatePassword(passwords.password_new)) {
+      defer.reject({error: {password_new: 'WRONG_FORMAT'}});
+    } else {
+      $http.post('/api/users/change_password/' + id, passwords)
+        .success(function (resp) {
+          if (resp.error) {
+            defer.reject(resp);
 
-                $http.
-                    get('/api/users').
-                    success(function(usersData){
-                        users = usersData;
-                        defer.resolve(users);
-                    }).
-                    error(function(error){
-                        defer.reject(error);
-                    });
-            }
+          } else {
+            defer.resolve(resp);
+          }
+        })
+        .error(function (error) {
+          defer.reject(error);
+      });
+    }
 
-            return defer.promise;
-        }
+    return defer.promise;
+  }
 
-        function getUser(userId){
-            var defer = $q.defer();
-
-            $http.get('/api/users/show/'+userId).then(function(response){
-                var user = response.data;
-                defer.resolve(user);
-
-            }, function(error){
-                defer.reject(error);
-            });
-
-            return defer.promise;
-        }
-
-        function createUser(userData){
-            var defer = $q.defer();
-
-            $http.post('/api/users/create', userData)
-                .success(function(data){
-
-                    console.log('data', data); //SHOULD RETURN SAVED USER's ID
-
-                    users = null;
-                    defer.resolve(data);
-                }).
-                error(function(error){
-                    defer.reject(error);
-                });
-
-            return defer.promise;
-        }
-
-        function updateUser(id, userData){
-            var defer = $q.defer();
-
-            $http.post('/api/users/update/'+id, userData)
-                .success(function(resp){
-                    users = null;
-                    defer.resolve(resp);
-                }).
-                error(function(error){
-                    defer.reject(error);
-                });
-
-            return defer.promise;
-        }
-
-        function changePassword(id, passwords){
-            var defer = $q.defer();
-
-            if ( !utils.validatePassword(passwords.password_new) ){
-                defer.reject({error: { password_new: 'WRONG_FORMAT'}});
-            } else {
-                $http.post('/api/users/change_password/'+id, passwords)
-                    .success(function(resp){
-                        if (resp.error){
-                            defer.reject(resp);
-
-                        } else {
-                            users = null;
-                            defer.resolve(resp);
-                        }
-                    }).
-                    error(function(error){
-                        defer.reject(error);
-                    });
-            }
-
-            return defer.promise;
-        }
-
-        return {
-            getUser   : getUser,
-            getUsers  : getUsers,
-            createUser: createUser,
-            updateUser: updateUser,
-            changePassword: changePassword
-        };
-    }]);
+  return {
+    getUser: getUser,
+    getUsers: getUsers,
+    changePassword: changePassword
+  };
+}]);

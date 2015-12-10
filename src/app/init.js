@@ -4,8 +4,6 @@ angular.module('knowledgeList')
             'use strict';
 
             $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
-                console.log('toState', toState.name);
-                console.log('toStateParams', toStateParams);
 
                 if( !authorization.isAuthorized() && toState.name !== 'login' ){
 

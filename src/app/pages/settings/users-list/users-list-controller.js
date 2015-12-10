@@ -7,8 +7,8 @@ angular.module('knowledgeList').controller('SettingsUsersListCtrl',
               usersRepository) {
       'use strict';
 
-      usersRepository.getUsers().then(function (users) {
-        $scope.users = users;
+      usersRepository.getUsers().then(function (usersResponse) {
+        $scope.users = usersResponse;
       });
 
       $scope.onViewKnowledgeList = function (e, userId) {
