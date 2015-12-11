@@ -3,11 +3,12 @@ angular.
     factory('menuResolver', ['$http', '$q', 'authorization',
         function($http, $q, authorization){
             'use strict';
-            var menu, prevAuthRole;
+            var menu,
+                prevAuthRole;
 
             return function(){
-                var defer = $q.defer();
-                var authRole = authorization.getUserRole();
+                var defer     = $q.defer(),
+                    authRole  = authorization.getUserRole();
 
                 if (authRole === prevAuthRole) {
                     defer.resolve(menu);
@@ -22,4 +23,3 @@ angular.
                 return defer.promise;
             };
         }]);
-

@@ -62,13 +62,26 @@ angular.
                 parent: 'base',
                 url: '/:userId/knowledge_list',
                 views: {
-                    navcontrols : {
-                        controller: 'KnowledgeListCtrl',
-                        templateUrl: './pages/knowledge-list/nav-controls-template.html'
-                    },
+                    //navcontrols : {
+                    //    controller: 'KnowledgeListCtrl',
+                    //    templateUrl: './pages/knowledge-list/nav-controls-template.html'
+                    //},
                     content: {
                         controller: 'KnowledgeListCtrl',
                         templateUrl: './pages/knowledge-list/content-template.html'
+                    }
+                },
+                resolve: {
+                    config : 'configResolver'
+                }
+            }).
+            state('knowledge_list_item_log', {
+                parent: 'base',
+                url: '/:userId/knowledge_list_item_log',
+                views: {
+                    content: {
+                        controller: 'KnowledgeListItemCtrl',
+                        templateUrl: './pages/knowledge-list-item-log/knowledge-list-item-template.html'
                     }
                 },
                 resolve: {
@@ -89,4 +102,3 @@ angular.
 
         }
     }]);
-
