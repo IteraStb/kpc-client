@@ -1,0 +1,132 @@
+.knowledge-log-container {
+  border: @base-border #ddd;
+  padding: 10px;
+  font-size: 14px;
+  .knowledge-item {
+      margin-bottom: 10px;
+  }
+}
+
+.knowledge-item-score {
+  text-align: center;
+  margin: 10px;
+  width: 118px;
+  & span {
+    font-size: 18px;
+  }
+}
+
+.save-progress-button {
+  background-color: @save-progress-button__color;
+  color: @color-white;
+  .background-transitions-mixin();
+  font-size: @font-size_m;
+  padding: 10px;
+  margin-top: 7px;
+  &:hover {
+    background-color: @save-progress-button__hover-color;
+    color: @color-white;
+  }
+}
+
+//current date knowledge sharing session
+.knowledge-log-session {
+  > div {
+    display: inline-block;
+    vertical-align: top;
+  }
+  & input {
+    width: 75px;
+    padding: 10px;
+    margin-top: 7px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .knowledge-items-window {
+    background-color: @color-white;
+    min-height: 170px;
+    min-width: 484px;
+    padding: 5px;
+    margin-left: 10px;
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      min-width: 388px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      min-width: 277px;
+    }
+
+    &:first-of-type {
+      margin: 0;
+    }
+    & li {
+      margin: 5px 0;
+      .background-transitions-mixin();
+      .knowledge-list-item {
+        margin-left: 5px;
+      }
+      &:hover {
+        background-color: @color-morning-glory;
+      }
+      &:hover:last-of-type {
+        background-color: transparent;
+      }
+    }
+  }
+  .add-item-button {
+    background-color: @add-item-button__color;
+    color: @color-white;
+    font-size: @font-size_xs;
+    &:hover {
+      background-color: @add-item-button__hover-color;
+      .background-transitions-mixin();
+    }
+  }
+}
+
+//historic knowledge sessions
+.knowledge-item {
+  &.history-item {
+    margin-bottom: 5px;
+  }
+}
+
+.history-item {
+  background-color: @color-alto;
+  font-size: @font-size_s;
+  padding: 10px;
+  .knowledge-log-session {
+    & div:nth-child(3) {
+      margin: 0;
+    }
+  }
+  .history-item-date {
+    transform: rotate(-90deg);
+    position: relative;
+    & span {
+      font-size: @font-size_s;
+      position: absolute;
+      display: block;
+      width: 80px;
+      right: -5px;
+    }
+  }
+  .knowledge-items-window {
+    background-color: @color-alto;
+    min-height: 80px;
+    & h4 {
+      font-size: @font-size_l;
+    }
+  }
+}
+
+.knowledge-score {
+  width: 130px;
+  font-size: 35px;
+  font-weight: 600;
+  position: relative;
+  & span {
+    position: absolute;
+    top: 22px;
+    left: 50px;
+  }
+}

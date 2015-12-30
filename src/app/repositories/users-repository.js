@@ -3,7 +3,7 @@ module('knowledgeList').
 factory('usersRepository', ['$http', '$q', 'utils', function ($http, $q, utils) {
   'use strict';
 
-  //gets users to displays them in the list
+  //gets users to display them in the list
   function getUsers() {
     var defer = $q.defer();
 

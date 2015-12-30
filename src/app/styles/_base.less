@@ -1,12 +1,128 @@
 body {
-  padding: 50px 0;
   font: 20px/150% "Helvetica Neue", "Lucida Grande", Verdana, sans-serif;
   color: #666;
-  background: #fcfcfc;
+  min-width: 450px;
+  background-color: @background-color;
+  line-height: 1;
 }
 
 input,
 textarea,
 button {
   font: inherit;
+}
+
+h1, h2, h3, h4 {
+  .reset-mixin();
+}
+
+ul, li {
+  .reset-mixin();
+  list-style: none;
+}
+
+input[disabled]{
+  cursor: default;
+}
+
+.panel-group .panel + .panel{
+  margin-top: 0;
+}
+
+
+.navbar{
+  z-index: 1003;
+  position: fixed;
+  width: 100%;
+  border-radius: 0;
+}
+
+nav {
+  .navbar-header{
+    float: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .pull-right{
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+
+.row {
+  margin-top: 50px;
+}
+
+// USERS LIST LESS ---> USERS LIST DIRECTIVE
+//TODO move this code to a more appropriate place
+.users-list {
+  margin-top: 10px;
+
+  .list-group-item{
+    margin-top: 5px;
+    color: @light-text-color !important;
+    background-color: @dark-background-color;
+    cursor: pointer;
+
+    -webkit-transition: background-color 0.4s ease-out 0.05s;
+    -o-transition: background-color 0.4s ease-out 0.05s;
+    transition: background-color 0.4s ease-out 0.05s;
+
+    .c-info:hover{
+      color: @light-text-color;
+    }
+
+    &:hover{
+
+      background-color: darken(@dark-background-color, 10%);
+
+      .img-frame{
+        opacity: 1;
+      }
+    }
+
+    .img-frame{
+      background-color: white;
+      border-radius: 50%;
+      border: 2px solid white;
+      opacity: 0.9;
+    }
+
+    .additional-info{
+      font-size: .75em;
+    }
+
+    .progress-block{
+      display: table;
+      width: 100%;
+      vertical-align: center;
+
+      [class*="-progress"]{
+        border-right: 1px solid @light-text-color;
+        font-size: 0.65em;
+        margin-top: 3px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .should-progress{
+        border-left: 3px solid @should-topic-color;
+        background-image: linear-gradient(to right,  @should-topic-color, transparent);
+      }
+
+      .could-progress{
+        border-left: 3px solid @could-topic-color;
+        background-image: linear-gradient(to right,  @could-topic-color, transparent);
+      }
+
+      .could-not-progress{
+        border-left: 3px solid @could-not-topic-color;
+        background-image: linear-gradient(to right,  @could-not-topic-color, transparent);
+      }
+    }
+  }
 }
