@@ -48,13 +48,12 @@
     min-width: 484px;
     padding: 5px;
     margin-left: 10px;
-    @media screen and (min-width: 992px) and (max-width: 1199px) {
+    @media @desktop_l {
       min-width: 388px;
     }
-    @media screen and (min-width: 768px) and (max-width: 991px) {
+    @media @desktop_m {
       min-width: 277px;
     }
-
     &:first-of-type {
       margin: 0;
     }
@@ -86,14 +85,19 @@
 //historic knowledge sessions
 .knowledge-item {
   &.history-item {
-    margin-bottom: 5px;
+    margin-bottom: 0;
   }
 }
 
 .history-item {
   background-color: @color-alto;
+  float: left;
   font-size: @font-size_s;
   padding: 10px;
+  margin-right: 6px;
+  &:last-of-type {
+    margin-right: 0;
+  }
   .knowledge-log-session {
     & div:nth-child(3) {
       margin: 0;
@@ -113,8 +117,23 @@
   .knowledge-items-window {
     background-color: @color-alto;
     min-height: 80px;
+    min-width: 199px;
     & h4 {
       font-size: @font-size_l;
+    }
+  }
+  @media @desktop_l {
+    .knowledge-items-window {
+      min-width: 149px;
+    }
+  }
+  @media @desktop_m {
+    margin-right: 0;
+    .knowledge-items-window {
+      min-width: 278px;
+    }
+    &.history-item {
+      margin-bottom: 5px;
     }
   }
 }
