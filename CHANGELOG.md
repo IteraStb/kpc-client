@@ -1,3 +1,10 @@
+v0.1.0-4
+======================
+* Added markup for knowledge check sessions log
+* Added normalize.css
+* Added Font Awesome icons
+* Refactored app.less to contain only other .less includes
+
 v0.1.0-3
 ======================
 * Removed upload button component and its references
