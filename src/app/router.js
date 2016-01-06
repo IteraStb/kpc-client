@@ -75,13 +75,13 @@ angular.
                     config : 'configResolver'
                 }
             }).
-            state('knowledge_list_item_log', {
+            state('interview', {
                 parent: 'base',
-                url: '/:userId/knowledge_list_item_log',
+                url: '/:userId/interview',
                 views: {
                     content: {
-                        controller: 'KnowledgeListItemCtrl',
-                        templateUrl: './pages/knowledge-list-item-log/knowledge-list-item-template.html'
+                        controller: 'InterviewItemCtrl',
+                        templateUrl: 'pages/interview-item-details/interview-item-details.html'
                     }
                 },
                 resolve: {

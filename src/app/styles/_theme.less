@@ -1,6 +1,17 @@
 //rewrites for bootstrap button
+.nopadding {
+  padding: 0;
+  margin: 0;
+}
+
 .btn {
-  border-radius: 0;
+  &.item__button {
+    border-radius: 0;
+    color: @color-white;
+    &:hover {
+      color: @color-white;
+    }
+  }
 }
 
 .logout-btn {

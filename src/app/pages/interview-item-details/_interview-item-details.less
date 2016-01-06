@@ -1,0 +1,114 @@
+.interview-item-details {
+  border: @base-border #ddd;
+  padding: 10px;
+  font-size: @font-size_m;
+  .item {
+    margin-bottom: 10px;
+  }
+}
+
+//current date knowledge sharing session
+.item__score {
+  text-align: center;
+  font-size: @font-size_l;
+  .item__score-date {
+    display: block;
+  }
+  .item__score-input {
+    width: 75px;
+    padding: 10px;
+    margin-top: 7px;
+    text-align: center;
+  }
+}
+
+.item__todo {
+  padding-right: 10px;
+  .item__bg {
+    background-color: @color-white;
+    min-height: 150px;
+    padding: 10px;
+  }
+  &:nth-of-type(2) {
+    padding-right: 0;
+  }
+}
+
+//list on the current session
+.todo-list {
+   li {
+    padding: 2px 0;
+    .background-transitions-mixin();
+    .knowledge-list-item {
+      margin-left: 5px;
+    }
+    &:hover {
+      background-color: @color-morning-glory;
+    }
+    &:hover:last-of-type {
+      background-color: transparent;
+    }
+  }
+}
+
+//historic knowledge sessions
+.item {
+  &.item--log {
+    margin-bottom: 0;
+  }
+}
+
+.item--log {
+  background-color: @color-alto;
+  font-size: @font-size_base;
+  .item__bg--log {
+    padding-right: 10px;
+    background-color: @background-color;
+  }
+  &:last-child {
+    padding: 0;
+  }
+  .item__wrapper {
+    display: table;
+    width: 100%;
+    .item__cell {
+      outline: 1px dotted red;
+      display: table-cell;
+      padding: 5px;
+      background-color: @color-alto;
+      vertical-align: middle;
+      &.item__cell--score {
+        font-size: 35px;
+        font-weight: 600;
+        line-height: 80px;
+        text-align: center;
+      }
+      &.item__cell--date {
+        width: 50px;
+        .item__date {
+          font-size: @font-size_base;
+          display: block;
+          width: 70px;
+          transform: rotate(-90deg);
+        }
+      }
+      &.item__cell--elems {
+        vertical-align: top;
+        .todo-list-log--title {
+          font-size: @font-size_m;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+  //@media @desktop_m {
+  //  margin-right: 0;
+  //  .knowledge-items-window {
+  //    min-width: 278px;
+  //  }
+  //  &.history-item {
+  //    margin-bottom: 5px;
+  //  }
+  //}

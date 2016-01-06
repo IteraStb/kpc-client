@@ -1,5 +1,5 @@
 angular.module('knowledgeList').
-controller('KnowledgeListItemCtrl',
+controller('InterviewItemCtrl',
   [ '$scope',
     '$state',
     'usersRepository',

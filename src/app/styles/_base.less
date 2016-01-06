@@ -126,3 +126,25 @@ nav {
     }
   }
 }
+
+//buttons
+.item__button--save-progress {
+  background-color: @save-progress-button__color;
+  .background-transitions-mixin();
+  font-size: @font-size_m;
+  padding: 10px;
+  margin-top: 7px;
+  &:hover {
+    background-color: @save-progress-button__hover-color;
+  }
+}
+
+.item__button--todo-list {
+  background-color: @add-item-button__color;
+  color: @color-white;
+  font-size: @font-size_xs;
+  &:hover {
+    background-color: @add-item-button__hover-color;
+    .background-transitions-mixin();
+  }
+}
