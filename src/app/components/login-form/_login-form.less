@@ -9,7 +9,7 @@
     .cust-login-button {
       background-color: @login-button__color;
       border-color: @login-button__color;
-      transition: all .3s ease;
+      .background-transitions-mixin();
       &:hover {
         background-color: @login-button__hover-color;
       }
@@ -27,10 +27,7 @@
       min-width: 150px;
       color: white;
       background-color: @brand-info;
-      -webkit-transition: background 0.3s ease-in;
-      -ms-transition: background 0.3s ease-in;
-      -o-transition: background 0.3s ease-in;
-      transition: background 0.3s ease-in;
+      .background-transitions-mixin();
     }
 
     &.has-error {

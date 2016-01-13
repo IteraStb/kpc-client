@@ -30,7 +30,7 @@ input[disabled]{
 }
 
 
-.navbar{
+.navbar {
   z-index: 1003;
   position: fixed;
   width: 100%;
@@ -59,41 +59,39 @@ nav {
 .users-list {
   margin-top: 10px;
 
-  .list-group-item{
+  .list-group-item {
     margin-top: 5px;
     color: @light-text-color !important;
     background-color: @dark-background-color;
     cursor: pointer;
-
     -webkit-transition: background-color 0.4s ease-out 0.05s;
-    -o-transition: background-color 0.4s ease-out 0.05s;
     transition: background-color 0.4s ease-out 0.05s;
 
-    .c-info:hover{
+    .c-info:hover {
       color: @light-text-color;
     }
 
-    &:hover{
+    &:hover {
 
       background-color: darken(@dark-background-color, 10%);
 
-      .img-frame{
+      .img-frame {
         opacity: 1;
       }
     }
 
-    .img-frame{
+    .img-frame {
       background-color: white;
       border-radius: 50%;
       border: 2px solid white;
       opacity: 0.9;
     }
 
-    .additional-info{
+    .additional-info {
       font-size: .75em;
     }
 
-    .progress-block{
+    .progress-block {
       display: table;
       width: 100%;
       vertical-align: center;
@@ -127,24 +125,3 @@ nav {
   }
 }
 
-//buttons
-.item__button--save-progress {
-  background-color: @save-progress-button__color;
-  .background-transitions-mixin();
-  font-size: @font-size_m;
-  padding: 10px;
-  margin-top: 7px;
-  &:hover {
-    background-color: @save-progress-button__hover-color;
-  }
-}
-
-.item__button--todo-list {
-  background-color: @add-item-button__color;
-  color: @color-white;
-  font-size: @font-size_xs;
-  &:hover {
-    background-color: @add-item-button__hover-color;
-    .background-transitions-mixin();
-  }
-}

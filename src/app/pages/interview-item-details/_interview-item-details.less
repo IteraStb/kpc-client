@@ -19,11 +19,18 @@
     padding: 10px;
     margin-top: 7px;
     text-align: center;
+    @media @desktop_s {
+      width: 250px;
+    }
   }
 }
 
 .item__todo {
   padding-right: 10px;
+  @media @desktop_s {
+    padding-right: 0;
+    padding-bottom: 10px;
+  }
   .item__bg {
     background-color: @color-white;
     min-height: 150px;
@@ -64,6 +71,14 @@
   .item__bg--log {
     padding-right: 10px;
     background-color: @background-color;
+    @media @desktop_s {
+      padding-right: 0;
+      padding-bottom: 10px;
+    }
+    @media @desktop_xs {
+      padding-right: 0;
+      padding-bottom: 10px;
+    }
   }
   &:last-child {
     padding: 0;
@@ -72,7 +87,6 @@
     display: table;
     width: 100%;
     .item__cell {
-      outline: 1px dotted red;
       display: table-cell;
       padding: 5px;
       background-color: @color-alto;
@@ -98,17 +112,13 @@
           font-size: @font-size_m;
           font-weight: 600;
         }
+        .todo-list-log {
+          padding-top: 5px;
+          li {
+            padding-bottom: 5px;
+          }
+        }
       }
     }
   }
 }
-
-  //@media @desktop_m {
-  //  margin-right: 0;
-  //  .knowledge-items-window {
-  //    min-width: 278px;
-  //  }
-  //  &.history-item {
-  //    margin-bottom: 5px;
-  //  }
-  //}
