@@ -62,13 +62,26 @@ angular.
                 parent: 'base',
                 url: '/:userId/knowledge_list',
                 views: {
-                    navcontrols : {
-                        controller: 'KnowledgeListCtrl',
-                        templateUrl: './pages/knowledge-list/nav-controls-template.html'
-                    },
+                    //navcontrols : {
+                    //    controller: 'KnowledgeListCtrl',
+                    //    templateUrl: './pages/knowledge-list/nav-controls-template.html'
+                    //},
                     content: {
                         controller: 'KnowledgeListCtrl',
                         templateUrl: './pages/knowledge-list/content-template.html'
+                    }
+                },
+                resolve: {
+                    config : 'configResolver'
+                }
+            }).
+            state('interview', {
+                parent: 'base',
+                url: '/:userId/interview',
+                views: {
+                    content: {
+                        controller: 'InterviewItemCtrl',
+                        templateUrl: 'pages/interview-item-details/interview-item-details.html'
                     }
                 },
                 resolve: {
@@ -89,4 +102,3 @@ angular.
 
         }
     }]);
-

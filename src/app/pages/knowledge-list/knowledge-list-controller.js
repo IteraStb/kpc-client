@@ -6,7 +6,6 @@ controller('KnowledgeListCtrl',
     '$stateParams',
     'usersRepository',
     'config',
-    '$modal',
     'authorization',
 
     function ($rootScope,
@@ -15,7 +14,6 @@ controller('KnowledgeListCtrl',
               $stateParams,
               usersRepository,
               config,
-              $modal,
               authorization) {
                 'use strict';
                 var userId = $stateParams.userId,
