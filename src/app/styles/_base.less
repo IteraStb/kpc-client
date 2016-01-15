@@ -6,12 +6,6 @@ body {
   line-height: 1;
 }
 
-input,
-textarea,
-button {
-  font: inherit;
-}
-
 h1, h2, h3, h4 {
   .reset-mixin();
 }
@@ -48,6 +42,11 @@ nav {
     margin-right: 15px;
     margin-left: 15px;
   }
+}
+
+.logout-btn {
+  background-color: @logout-button__color;
+  .background-transitions-mixin();
 }
 
 .row {
@@ -121,6 +120,23 @@ nav {
         border-left: 3px solid @could-not-topic-color;
         background-image: linear-gradient(to right,  @could-not-topic-color, transparent);
       }
+    }
+  }
+}
+
+//service class to remove padding/margins in bootstrap grids
+.nopadding {
+  padding: 0;
+  margin: 0;
+}
+
+//rewrites for bootstrap button
+.btn {
+  &.item__button {
+    border-radius: 0;
+    color: @color-white;
+    &:hover {
+      color: @color-white;
     }
   }
 }

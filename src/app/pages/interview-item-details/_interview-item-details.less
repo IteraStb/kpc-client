@@ -19,7 +19,7 @@
     padding: 10px;
     margin-top: 7px;
     text-align: center;
-    @media @desktop_s {
+    @media @desktop_s, @desktop_xs {
       width: 250px;
     }
   }
@@ -27,9 +27,8 @@
 
 .item__todo {
   padding-right: 10px;
-  @media @desktop_s {
-    padding-right: 0;
-    padding-bottom: 10px;
+  @media @desktop_s, @desktop_xs {
+    .interview-tablet-indents-mixin();
   }
   .item__bg {
     background-color: @color-white;
@@ -65,60 +64,86 @@
   }
 }
 
+//log items row
 .item--log {
   background-color: @color-alto;
   font-size: @font-size_base;
   .item__bg--log {
     padding-right: 10px;
     background-color: @background-color;
-    @media @desktop_s {
-      padding-right: 0;
-      padding-bottom: 10px;
-    }
-    @media @desktop_xs {
-      padding-right: 0;
-      padding-bottom: 10px;
+    @media @desktop_s, @desktop_xs  {
+      .interview-tablet-indents-mixin();
     }
   }
   &:last-child {
     padding: 0;
   }
-  .item__wrapper {
-    display: table;
-    width: 100%;
-    .item__cell {
-      display: table-cell;
-      padding: 5px;
-      background-color: @color-alto;
-      vertical-align: middle;
-      &.item__cell--score {
-        font-size: 35px;
+}
+
+//styles for log items
+.item__wrapper {
+  display: table;
+  width: 100%;
+  .item__cell {
+    display: table-cell;
+    padding: 5px;
+    background-color: @color-alto;
+    vertical-align: middle;
+    &.item__cell--score {
+      font-size: 35px;
+      font-weight: 600;
+      line-height: 80px;
+      text-align: center;
+    }
+    &.item__cell--date {
+      width: 50px;
+      .item__date {
+        font-size: @font-size_base;
+        display: block;
+        width: 70px;
+        transform: rotate(-90deg);
+      }
+    }
+    &.item__cell--elems {
+      vertical-align: top;
+      .todo-list-log--title {
+        font-size: @font-size_m;
         font-weight: 600;
-        line-height: 80px;
-        text-align: center;
       }
-      &.item__cell--date {
-        width: 50px;
-        .item__date {
-          font-size: @font-size_base;
-          display: block;
-          width: 70px;
-          transform: rotate(-90deg);
-        }
-      }
-      &.item__cell--elems {
-        vertical-align: top;
-        .todo-list-log--title {
-          font-size: @font-size_m;
-          font-weight: 600;
-        }
-        .todo-list-log {
-          padding-top: 5px;
-          li {
-            padding-bottom: 5px;
-          }
+      .todo-list-log {
+        padding-top: 5px;
+        li {
+          padding-bottom: 5px;
         }
       }
     }
+  }
+}
+
+//list buttons
+.item__button--save-progress {
+  background-color: @save-progress-button__color;
+  @media @desktop_s, @desktop_xs {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+  }
+  .background-transitions-mixin();
+  font-size: @font-size_m;
+  padding: 10px;
+  margin-top: 7px;
+  &:hover {
+    background-color: @save-progress-button__hover-color;
+  }
+}
+
+.item__button--todo-list {
+  background-color: @add-item-button__color;
+  color: @color-white;
+  font-size: @font-size_xs;
+  &:hover {
+    background-color: @add-item-button__hover-color;
+    .background-transitions-mixin();
   }
 }
