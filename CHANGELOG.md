@@ -1,3 +1,7 @@
+v0.1.0-5
+======================
+* Implemented pulling data from server for the log interview template 
+
 v0.1.0-4
 ======================
 * Added markup for knowledge check sessions log
