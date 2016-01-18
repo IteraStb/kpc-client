@@ -8,22 +8,9 @@ controller('InterviewItemCtrl',
               interview) {
       'use strict';
 
-      $scope.sessionLog = interview.getInterviewItems();
-
-      //$scope.getWindowWidth = function () {
-      //  var w;
-      //
-      //  w = angular.element(document.documentElement.clientWidth);
-      //  console.log(w);
-      //
-      //  return w;
-      //};
-      //
-      //$scope.windowWidth = $scope.getWindowWidth();
-      //$scope.applyClassOnScreenSize = function () {
-      //
-      //};
-
-      //$scope.rights = authorization.getUserRights();
-      //$scope.config = config;
+      interview.getInterviewItems().then(
+        function (interviewItemsResponse){
+          $scope.sessionLog = interviewItemsResponse;
+        }
+      );
     }]);
