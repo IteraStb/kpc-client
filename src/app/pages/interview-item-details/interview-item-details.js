@@ -1,20 +1,25 @@
-angular.
-  module('knowledgeList').
-    factory('interview', ['$http',
-       function ($http) {
-         'use strict';
+angular.module('knowledgeList')
+  .factory('interview',
+          ['$http',
+            '$q',
+      function ($http,
+                $q) {
+        'use strict';
 
-         function getInterviewItems() {
+          function getInterviewItems() {
+            var deferred = $q.defer();
 
-           $http.get('/api/logs')
-             .then(function (logResponse) {
+            $http.get('/api/logs')
+              .then(function (logResponse) {
 
-               return logResponse.data;
+                if (logResponse.data) {
+                  deferred.resolve(logResponse.data[0].knowledge_list[0].log);
+                }
+              });
+            return deferred.promise;
+          }
 
-             });
-         }
-
-         return {
-           getInterviewItems : getInterviewItems
-         };
-       }]);
+          return {
+            getInterviewItems: getInterviewItems
+          };
+      }]);
