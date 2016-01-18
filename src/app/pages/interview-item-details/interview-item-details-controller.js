@@ -11,7 +11,6 @@ controller('InterviewItemCtrl',
       interview.getInterviewItems().then(
         function (interviewItemsResponse){
           $scope.sessionLog = interviewItemsResponse;
-          console.log($scope.sessionLog);
         }
       );
     }]);
