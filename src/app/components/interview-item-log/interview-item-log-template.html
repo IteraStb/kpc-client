@@ -1,0 +1,26 @@
+<ul>
+  <li class="item item--log col-lg-6 col-md-6 col-sm-12 col-xs-12 nopadding" ng-repeat="logItems in listObject">
+    <div class="item__bg--log">
+      <div class="item__wrapper">
+        <div class="item__cell item__cell--score">
+          <span>{{logItems.score}}</span>
+        </div>
+        <div class="item__cell item__cell--elems">
+          <span class="todo-list-log todo-list-log--title">Goals:</span>
+          <ul class="todo-list-log">
+            <li ng-repeat="goalItems in logItems.goals">{{goalItems}}</li>
+          </ul>
+        </div>
+        <div class="item__cell item__cell--elems">
+          <span class="todo-list-log todo-list-log--title">Results:</span>
+          <ul class="todo-list-log">
+            <li ng-repeat="resultItems in logItems.results">{{resultItems}}</li>
+          </ul>
+        </div>
+        <div class="item__cell item__cell--date">
+          <span class="item__date">{{logItems.date}}</span>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

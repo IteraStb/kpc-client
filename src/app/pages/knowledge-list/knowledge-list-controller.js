@@ -130,6 +130,7 @@ controller('KnowledgeListCtrl',
                   userDataMerged = {};
 
                 $scope.rights = authorization.getUserRights();
+                console.log($scope.rights);
                 $scope.config = config;
 
                 $scope.onGoalsChange = function () {

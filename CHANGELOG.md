@@ -1,3 +1,8 @@
+v0.1.0-6
+======================
+* Added interview-item-log directive
+* Added start interview button for admin user
+
 v0.1.0-5
 ======================
 * Implemented pulling data from server for the log interview template 

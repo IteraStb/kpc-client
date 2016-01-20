@@ -1,6 +1,5 @@
 <div class="row interview-item-details">
-  <ul>
-    <li class="item item--interview col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding">
+    <div class="item item--interview col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding">
       <form action="#">
         <div>
           <div class="item__todo col-lg-5 col-md-5 col-sm-12 col-xs-12 nopadding">
@@ -35,30 +34,6 @@
           </div>
         </div>
       </form>
-    </li>
-    <li class="item item--log col-lg-6 col-md-6 col-sm-12 col-xs-12 nopadding" ng-repeat="logItems in sessionLog">
-      <div class="item__bg--log">
-        <div class="item__wrapper">
-          <div class="item__cell item__cell--score">
-            <span>{{logItems.score}}</span>
-          </div>
-          <div class="item__cell item__cell--elems">
-            <span class="todo-list-log todo-list-log--title">Goals:</span>
-            <ul class="todo-list-log">
-              <li>{{logItems.goals[0].title}}</li>
-            </ul>
-          </div>
-          <div class="item__cell item__cell--elems">
-            <span class="todo-list-log todo-list-log--title">Results:</span>
-            <ul class="todo-list-log">
-              <li>{{logItems.results[0].resultNotes}}</li>
-            </ul>
-          </div>
-          <div class="item__cell item__cell--date">
-            <span class="item__date">{{logItems.date}}</span>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
+    </div>
+    <interview-item-log list-object="sessionLog"/>
 </div>

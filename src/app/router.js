@@ -62,10 +62,10 @@ angular.
                 parent: 'base',
                 url: '/:userId/knowledge_list',
                 views: {
-                    //navcontrols : {
-                    //    controller: 'KnowledgeListCtrl',
-                    //    templateUrl: './pages/knowledge-list/nav-controls-template.html'
-                    //},
+                    navcontrols : {
+                        controller: 'KnowledgeListCtrl',
+                        templateUrl: './pages/knowledge-list/nav-controls-template.html'
+                    },
                     content: {
                         controller: 'KnowledgeListCtrl',
                         templateUrl: './pages/knowledge-list/content-template.html'
