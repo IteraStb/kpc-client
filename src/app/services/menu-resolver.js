@@ -14,7 +14,6 @@ module('knowledgeList')
           return function () {
             var defer = $q.defer(),
             authRole = authorization.getUserRole();
-            console.log(authRole);
 
             if (authRole === prevAuthRole) {
               defer.resolve(menu);

@@ -15,12 +15,9 @@ controller('BaseLayoutCtrl',
         authRole = authorization.getUserRole();
 
     $scope.authRole = authRole;
-      console.log( $scope.authRole);
-
 
     menuResolver().then(function (menu) {
       $scope.menu = menu;
-      console.log($scope.menu);
     });
 
     $scope.onClickMenuItem = function (item) {

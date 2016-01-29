@@ -1,16 +1,13 @@
-angular.module('knowledgeList').
-controller('InterviewItemCtrl',
-  [ '$scope',
-    '$http',
+angular.module('knowledgeList').controller('InterviewItemCtrl',
+  ['$scope',
     'interview',
     function ($scope,
-              $http,
               interview) {
       'use strict';
 
-      interview.getInterviewItems().then(
-        function (interviewItemsResponse){
-          $scope.sessionLog = interviewItemsResponse;
-        }
-      );
+      //interview.getInterviewItems().then(
+      //  function (interviewItemsResponse) {
+      //    $scope.sessionLog = interviewItemsResponse;
+      //  }
+      //);
     }]);

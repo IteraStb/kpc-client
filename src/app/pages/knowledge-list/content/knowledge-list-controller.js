@@ -1,5 +1,4 @@
-angular.module('knowledgeList').
-controller('KnowledgeListCtrl',
+angular.module('knowledgeList').controller('KnowledgeListCtrl',
   ['$rootScope',
     '$scope',
     '$state',
@@ -7,19 +6,22 @@ controller('KnowledgeListCtrl',
     'usersRepository',
     'config',
     'authorization',
+    'interview',
+      function (
+        $rootScope,
+        $scope,
+        $state,
+        $stateParams,
+        usersRepository,
+        config,
+        authorization,
+        interview) {
 
-    function ($rootScope,
-              $scope,
-              $state,
-              $stateParams,
-              usersRepository,
-              config,
-              authorization) {
-                'use strict';
-                var userId = $stateParams.userId,
+        'use strict';
 
-                //todo Remove this mock after backend is added to retrieve knowledge list from DB
-                  knowledgeListMock = {
+        var userId = $stateParams.userId,
+        //todo Remove this mock after backend is added to retrieve knowledge list from DB
+        knowledgeListMock = {
                     knowledge_list: [{
                       'id': 'jasmine',
                       'title': 'Jasmine',
@@ -127,19 +129,21 @@ controller('KnowledgeListCtrl',
                   }
                     ]
                   },
-                  userDataMerged = {};
+        userDataMerged = {};
 
-                $scope.rights = authorization.getUserRights();
-                console.log($scope.rights);
-                $scope.config = config;
+        $scope.rights = authorization.getUserRights();
+        $scope.config = config;
 
-                $scope.onGoalsChange = function () {
-                  usersRepository.updateKnList($scope.userData);
-                };
+        //subscribe to the interview service promise
+        interview.getInterviewItems().then(
+          function (interviewItemsResponse) {
+            $scope.sessionLog = interviewItemsResponse;
+          }
+        );
 
-                //merge user object with knowledge mock data
-                usersRepository.getUser(userId).then(function (userData) {
-                  userDataMerged = angular.extend(userData, knowledgeListMock);
-                  $scope.userData = userDataMerged;
-                });
-              }]);
+        //merge user object with knowledge mock data
+        usersRepository.getUser(userId).then(function (userData) {
+          userDataMerged = angular.extend(userData, knowledgeListMock);
+          $scope.userData = userDataMerged;
+        });
+      }]);
