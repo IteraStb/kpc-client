@@ -19,7 +19,26 @@ angular.module('knowledgeList')
             return deferred.promise;
           }
 
+          function getCurrentDate() {
+            var today,
+              mm,
+              dd,
+              yy;
+
+            today = new Date();
+            yy = today.getFullYear();
+
+            //+1 because January is 0
+            mm = today.getMonth() + 1;
+            dd = today.getDate();
+
+            today = dd + '/' + mm + '/' + yy;
+
+            return today;
+          }
+
           return {
-            getInterviewItems: getInterviewItems
+            getInterviewItems: getInterviewItems,
+            getCurrentDate: getCurrentDate
           };
       }]);

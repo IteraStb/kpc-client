@@ -1,11 +1,6 @@
-.interview-item-details {
-  border: @base-border #ddd;
-  padding: 10px;
-  font-size: @font-size_m;
-  .item {
+.item {
     margin-bottom: 10px;
   }
-}
 
 //current date knowledge sharing session
 .item__score {
@@ -42,10 +37,11 @@
 
 //list on the current session
 .todo-list {
-   li {
+  li {
     padding: 2px 0;
+    font-size: @font-size_m;
     .background-transitions-mixin();
-    .knowledge-list-item {
+    .todo-list__elem {
       margin-left: 5px;
     }
     &:hover {

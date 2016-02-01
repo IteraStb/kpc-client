@@ -4,7 +4,7 @@ angular.module('knowledgeList').directive('interviewItemLog',
 
     return {
       restrict: 'E',
-      templateUrl: '/components/interview-item-log/interview-item-log-template.html',
+      templateUrl: '/components/interview/interview-template.html',
       replace: true,
       transclude: true,
       scope: {

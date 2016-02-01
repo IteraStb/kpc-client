@@ -11,7 +11,8 @@ angular.module('knowledgeList').directive('sortableAccordion', function () {
       config: '=',
       list: '=',
       onChange: '=',
-      log: '='
+      log: '=',
+      today: '='
     },
     link: function (scope) {
       scope.sortableOptions = {
@@ -32,7 +33,6 @@ angular.module('knowledgeList').directive('sortableAccordion', function () {
             $('html,body').animate({
               scrollTop: $('#' + anchor).offset().top
             }, 1000);
-            console.log('scrolled up' + $anchor.offset().top);
           }
         }, 200);
       };

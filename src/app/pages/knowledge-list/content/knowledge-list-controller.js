@@ -60,6 +60,7 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
                     {
                       'id': 'Angular',
                       'title': 'Angular',
+                      "logo": "https://avatars0.githubusercontent.com/u/139426?v=3&s=400",
                       'area': 'fremework',
                       'log': [
                         {
@@ -133,6 +134,7 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
 
         $scope.rights = authorization.getUserRights();
         $scope.config = config;
+        $scope.today = interview.getCurrentDate();
 
         //subscribe to the interview service promise
         interview.getInterviewItems().then(
@@ -146,4 +148,5 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
           userDataMerged = angular.extend(userData, knowledgeListMock);
           $scope.userData = userDataMerged;
         });
+
       }]);

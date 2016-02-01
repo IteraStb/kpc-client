@@ -13,27 +13,37 @@
                             }">
         <accordion-heading>
           <heading-progress-bar val="((goals | calculateRatio:'completed')*100)">
-            <div class="flex">
-              <div class="info-block">
-                <div class="priority-heading" title="Topic priority: {{topic.priority}}">{{topic.priority}}</div>
-                <div class="title-heading" title="Topic name: {{topic.title}}">{{topic.title}}</div>
-                <div class="area-heading" title="Topic area: {{topic.area}}">{{topic.area}}</div>
-              </div>
-              <div class="score-block">
-                <div class="flex">
-                  <div class="percentage-title">
-                    Completed:
-                    <div>{{((goals | calculateRatio:'completed')*100).toFixed(0) +'%'}}</div>
-                  </div>
-                  <div class="score-title" title="Total score: {{(topic | getRecentLogEntry).score}}">
-                    {{(topic | getRecentLogEntry).score}}
-                  </div>
-                </div>
+            <div class="knowledge-item knowledge-item--wrapper clearfix">
 
-                <div class="date-title" title="Last modified: {{(topic | getRecentLogEntry).date | date: 'longDate'}}">
+              <div class="knowledge-item__block nopadding col-sm-1 col-sm-offset-1">
+                <div class="knowledge-item__wrapper--logo"><img src="{{topic.logo}}" class="knowledge-item__logo"></div>
+              </div>
+
+              <div class="knowledge-item__block nopadding col-md-5">
+                <div class="knowledge-item__wrapper--title" title="Topic name: {{topic.title}}">{{topic.title}}</div>
+                <div class="knowledge-item__wrapper--area" title="Topic area: {{topic.area}}">{{topic.area}}</div>
+              </div>
+
+              <div class="knowledge-item__block nopadding col-md-3">
+                <div class="knowledge-item__wrapper--priority" title="Topic priority: {{topic.priority}}">{{topic.priority}}</div>
+              </div>
+
+              <div class="knowledge-item__block nopadding col-md-2">
+                <div class="knowledge-item__wrapper--percentage">
+                  <span class="knowledge-item__percentage">Completed:</span>
+                  <div>{{((goals | calculateRatio:'completed')*100).toFixed(0) +'%'}}</div>
+                </div>
+                <div class="knowledge-item__wrapper--date" title="Last modified: {{(topic | getRecentLogEntry).date | date: 'longDate'}}">
                   {{(topic | getRecentLogEntry).date | date: 'longDate'}}
                 </div>
               </div>
+
+              <div class="knowledge-item__block nopadding col-md-1">
+                <div class="knowledge-item__wrapper--score" title="Total score: {{(topic | getRecentLogEntry).score}}">
+                  {{(topic | getRecentLogEntry).score}}
+                </div>
+              </div>
+
             </div>
           </heading-progress-bar>
         </accordion-heading>
@@ -42,6 +52,44 @@
           list="goals"
           on-change-cb="onChange">
         </todo-list>
+        <div class="item item--interview col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding"
+             ng-if="$root.mode === 'interview'"
+              today="today">
+          <form action="#">
+            <div>
+              <div class="item__todo col-lg-5 col-md-5 col-sm-12 col-xs-12 nopadding">
+                <div class="item__bg">
+                  <h4>Result:</h4>
+                  <ul class="todo-list">
+                    <li><i class="fa fa-times"></i><span class="todo-list__elem">directives</span></li>
+                    <li><i class="fa fa-times"></i><span class="todo-list__elem">$http</span></li>
+                    <li>
+                      <button class="btn btn-xs item__button item__button--todo-list">Cancel</button>
+                      <button class="btn btn-xs item__button item__button--todo-list">Add</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="item__todo col-lg-5 col-md-5 col-sm-12 col-xs-12 nopadding">
+                <div class="item__bg">
+                  <h4>Goals:</h4>
+                  <ul class="todo-list">
+                    <li><i class="fa fa-times"></i><span class="todo-list__elem">directives</span></li>
+                    <li>
+                      <button class="btn btn-xs item__button item__button--todo-list">Cancel</button>
+                      <button class="btn btn-xs item__button item__button--todo-list">Add</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="item__score col-lg-2 col-md-2 col-sm-12 col-xs-12 nopadding">
+                <span class="item__score-date">{{today}}</span>
+                <input type="text" class="item__score-input" placeholder="Score">
+                <button class="btn item__button item__button--save-progress">Save Progress</button>
+              </div>
+            </div>
+          </form>
+          </div>
         <interview-item-log
           ng-if="$root.mode === 'interview'"
           log="log">

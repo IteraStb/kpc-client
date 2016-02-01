@@ -1,95 +1,75 @@
-.panel{
-    border: 0px solid transparent !important;
-    margin-bottom: 3px;
-
-    .panel-heading{
-
-        #FlatDesign > .NoBorderRadius();
-
-        padding: 0px;
-        padding-top: 5px;
-
-        .panel-title{
-            color: white;
-
-            a {
-                text-decoration: none;
-            }
-
-
-            div.flex{
-                display: flex;
-                flex-wrap: nowrap;
-                justify-content: space-between;
-                text-decoration: none !important;
-                padding: 0px 10px;
-            }
-
-            .info-block{
-                z-index: 101;
-                margin-bottom: 25px;
-
-                div {
-                    margin: 3px;
-                }
-
-                .priority-heading{
-                    font-size: 10px;
-                    font-style: italic;
-                }
-
-                .title-heading{
-                    font-weight: bold;
-                    font-size: 20px;
-
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-
-                .area-heading{
-                    font-size: 10px;
-                }
-
-            }
-
-            .score-block{
-                z-index: 101;
-                width: 200px;
-
-                div {
-                    margin: 3px;
-                }
-
-                .score-title{
-                    font-weight: bold;
-                    text-align: right;
-                    font-size: 35px;
-                    padding: 0 10px;
-                }
-
-                .date-title{
-                    font-size: 10px;
-                    white-space: nowrap;
-                }
-
-                .percentage-title{
-                    width: 150px;
-                    font-style: italic;
-                    white-space: nowrap;
-                    font-size: 10px;
-
-                    div{
-                        text-align: center;
-                        font-weight: bold;
-                        font-size: 18px;
-                    }
-
-                }
-            }
-
-        }
+.panel {
+  border: 0 solid transparent;
+  margin-bottom: 3px;
+  a {
+    &:hover {
+      text-decoration: none;
     }
+  }
+}
+
+.panel-heading {
+  //disable corners for the list items
+  #FlatDesign > .NoBorderRadius();
+  padding: 0;
+
+  .panel-title {
+    color: @color-white;
+
+    .knowledge-item {
+      text-decoration: none;
+      font-size: @font-size_m;
+      font-weight: 600;
+    }
+    //wrapper for the knowledge list item
+    .knowledge-item--wrapper {
+      padding: 20px 10px;
+    }
+
+    .knowledge-item__block {
+      .knowledge-item__wrapper--logo {
+        float: left;
+        .knowledge-item__logo {
+          width: 30px;
+        }
+      }
+
+      .knowledge-item__wrapper--title {
+        font-weight: bold;
+        font-size: @font-size_xxl + 10;
+        white-space: nowrap;
+      }
+
+      .knowledge-item__wrapper--priority {
+
+      }
+
+      .knowledge-item__wrapper--area {
+
+      }
+
+      .knowledge-item__wrapper--percentage {
+        .knowledge-item__percentage {
+          float: left;
+          margin-right: 5px;
+        }
+      }
+
+      .knowledge-item__wrapper--score {
+        font-weight: bold;
+        text-align: right;
+        font-size: 35px;
+        padding: 0 10px;
+      }
+
+      .knowledge-item__wrapper--date {
+        font-size: @font-size_base;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  }
 
     .panel-body{
         #FlatDesign > .NoBorderRadius();
@@ -105,7 +85,6 @@
         border-color: @background-border-color;
     }
 
-}
 
 .should-topic{
     .panel-heading{
