@@ -1,6 +1,10 @@
 v0.1.0-6
 ======================
+* Refactor sortable accordion directive template styles for consistency
+* Disabled for admin checking knowledge item tasks 
+* Added interview form to the sortable accordion directive
 * Added interview-item-log directive
+* Added finish interview button for the admin
 * Added start interview button for admin user
 
 v0.1.0-5

@@ -7,10 +7,18 @@ angular.module('knowledgeList').directive('todoList', ['$filter', function($filt
     transclude: true,
     scope: {
       list: '=',
-      onChangeCb: '='
+      onChangeCb: '=',
+      userRole: '='
     },
     link: function (scope) {
-      scope.onToggleCheck = function () {
+      scope.onToggleCheck = function (event) {
+        if (scope.userRole === 'admin') {
+          event.preventDefault();
+          event.stopPropagation();
+
+          return;
+        }
+
         this.item.completed = !$filter('toBoolean')(this.item.completed);
 
         var checkedIndex = scope.list.indexOf(this.item);

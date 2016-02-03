@@ -12,7 +12,8 @@ angular.module('knowledgeList').directive('sortableAccordion', function () {
       list: '=',
       onChange: '=',
       log: '=',
-      today: '='
+      today: '=',
+      userRole: '='
     },
     link: function (scope) {
       scope.sortableOptions = {

@@ -137,6 +137,7 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
         $scope.rights = authorization.getUserRights();
         $scope.config = config;
         $scope.today = interview.getCurrentDate();
+        $scope.authRole = authorization.getUserRole();
 
         //subscribe to the interview service promise
         interview.getInterviewItems().then(

@@ -1,5 +1,5 @@
-<accordion close-others="oneAtATime">
-  <ul ui-sortable="sortableOptions" ng-model="list">
+<accordion close-others="oneAtATime" ng-disabled="userRole === 'admin'">
+  <ul ui-sortable="sortableOptions" ng-model="list" ng-disabled="userRole === 'admin'">
     <li ng-repeat="topic in list | prioritize:config.priority"
         ng-init="goals = (topic | getRecentLogEntry).goals"
         ng-click="gotoAnchor(topic.id)"
@@ -47,11 +47,15 @@
             </div>
           </heading-progress-bar>
         </accordion-heading>
+        <div ng-disabled="userRole === 'admin'">
         <todo-list
           ng-if="$root.mode === 'view'"
           list="goals"
-          on-change-cb="onChange">
+          user-role="userRole"
+          on-change-cb="onChange"
+          ng-disabled="userRole === 'admin'">
         </todo-list>
+        </div>
         <div class="item item--interview col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding"
              ng-if="$root.mode === 'interview'"
               today="today">

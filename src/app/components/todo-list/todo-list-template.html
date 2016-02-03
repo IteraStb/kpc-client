@@ -4,23 +4,24 @@
       <span class="input-group-addon">
         <span
           class="glyphicon checkbox"
-          ng-click="onToggleCheck()"
+          ng-click="onToggleCheck($event)"
           ng-class="{
                       'glyphicon-unchecked': !(item.completed | toBoolean),
                       'glyphicon-check': (item.completed | toBoolean)
                     }">
         </span>
       </span>
-      <span ng-click="onToggleCheck()">
-          <input type="text"
-                 title="{{item.title}}"
-                 class="form-control item-title"
-                 disabled="disabled"
-                 aria-label="..."
-                 ng-class="{completed: (item.completed | toBoolean) }"
-                 ng-value="item.title">
+      <span ng-click="onToggleCheck($event)">
+        <input  type="text"
+                title="{{item.title}}"
+                class="form-control item-title"
+                disabled="disabled"
+                aria-label="..."
+                ng-class="{ completed: (item.completed | toBoolean)}"
+                ng-value="item.title">
       </span>
-      <span class="removeTodoItem" title="Remove this item task" ng-click="onRemoveTodo(item.id)"
+      <span class="removeTodoItem" title="Remove this item task"
+            ng-click="onRemoveTodo(item.id)"
             ng-show="removable">
           <span class="glyphicon glyphicon-remove"></span>
       </span>
