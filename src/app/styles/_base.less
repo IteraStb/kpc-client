@@ -143,9 +143,17 @@ nav {
 }
 
 .item__button--start-iterview {
-  background-color: @start-iterview-button__color;
+   background-color: @start-iterview-button__color;
+   .background-transitions-mixin();
+   &:hover {
+     background-color: @start-iterview-button__hover-color;
+   }
+}
+
+.item__button--finish-iterview {
+  background-color: @finish-interview-button__color;
   .background-transitions-mixin();
   &:hover {
-    background-color: @start-iterview-button__hover-color;
+    background-color: @finish-interview-button__hover-color;
   }
 }

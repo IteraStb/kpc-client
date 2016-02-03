@@ -17,6 +17,10 @@
     color: @color-white;
 
     .knowledge-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
       text-decoration: none;
       font-size: @font-size_m;
       font-weight: 600;
@@ -28,9 +32,11 @@
 
     .knowledge-item__block {
       .knowledge-item__wrapper--logo {
-        float: left;
+        @media @desktop_s, @desktop_xs {
+          margin-left: -10px;
+        }
         .knowledge-item__logo {
-          width: 30px;
+          width: 50px;
         }
       }
 
@@ -45,12 +51,16 @@
       }
 
       .knowledge-item__wrapper--area {
-
+        margin-top: 5px;
       }
 
       .knowledge-item__wrapper--percentage {
+        text-align: right;
+        .knowledge-item__label {
+          display: inline-block;
+        }
         .knowledge-item__percentage {
-          float: left;
+          display: inline-block;
           margin-right: 5px;
         }
       }
@@ -68,58 +78,54 @@
       }
     }
   }
+}
 
+.panel-body {
+  #FlatDesign > .NoBorderRadius();
+  margin-bottom: 5px;
+}
+
+.input-group-addon {
+  #FlatDesign > .NoBorderRadius();
+  border-color: @background-border-color;
+}
+
+.form-control {
+  border-color: @background-border-color;
+}
+
+
+.should-topic {
+  .panel-heading {
+    background-color: @should-topic-color;
+    &:hover {
+      background-color: @should-topic-color-hover; //saturate(@should-topic-color, 25%);
+    }
   }
-
-    .panel-body{
-        #FlatDesign > .NoBorderRadius();
-        margin-bottom: 5px;
-    }
-
-    .input-group-addon{
-        #FlatDesign > .NoBorderRadius();
-        border-color: @background-border-color;
-    }
-
-    .form-control{
-        border-color: @background-border-color;
-    }
-
-
-.should-topic{
-    .panel-heading{
-        background-color: @should-topic-color;
-
-        &:hover{
-            background-color: @should-topic-color-hover; //saturate(@should-topic-color, 25%);
-        }
-    }
 }
 
-.could-topic{
-    .panel-heading{
-        background-color: @could-topic-color;
-
-        &:hover{
-            background-color: @could-topic-color-hover; //saturate(@could-topic-color, 60%);
-        }
+.could-topic {
+  .panel-heading {
+    background-color: @could-topic-color;
+    &:hover {
+      background-color: @could-topic-color-hover; //saturate(@could-topic-color, 60%);
     }
+  }
 }
 
 
-.could-not-topic{
-    .panel-heading{
-        background-color: @could-not-topic-color;
-
-        &:hover{
-            background-color: @could-not-topic-color-hover; //saturate(@could-not-topic-color, 50%);
-        }
+.could-not-topic {
+  .panel-heading {
+    background-color: @could-not-topic-color;
+    &:hover {
+      background-color: @could-not-topic-color-hover; //saturate(@could-not-topic-color, 50%);
     }
+  }
 }
 
-.should-topic, .could-topic, .could-not-topic{
-    .panel-body{
-        background-color: @background-color;
-        border-color: @background-border-color;
-    }
+.should-topic, .could-topic, .could-not-topic {
+  .panel-body {
+    background-color: @background-color;
+    border-color: @background-border-color;
+  }
 }

@@ -27,6 +27,10 @@ angular.module('knowledgeList').controller('KnowledgeListNavCtrl',
           $rootScope.$emit('modeChange', {mode: 'interview'});
         };
 
+        $scope.onFinishInterview = function () {
+          $rootScope.$emit('modeChange', {mode: 'view'});
+        };
+
         usersRepository.getUser(userId).then(function (userData) {
           $scope.userData = userData;
         });

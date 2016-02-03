@@ -15,30 +15,30 @@
           <heading-progress-bar val="((goals | calculateRatio:'completed')*100)">
             <div class="knowledge-item knowledge-item--wrapper clearfix">
 
-              <div class="knowledge-item__block nopadding col-sm-1 col-sm-offset-1">
+              <div class="knowledge-item__block col-xs-1">
                 <div class="knowledge-item__wrapper--logo"><img src="{{topic.logo}}" class="knowledge-item__logo"></div>
               </div>
 
-              <div class="knowledge-item__block nopadding col-md-5">
+              <div class="knowledge-item__block col-md-3 col-sm-3 col-xs-4">
                 <div class="knowledge-item__wrapper--title" title="Topic name: {{topic.title}}">{{topic.title}}</div>
                 <div class="knowledge-item__wrapper--area" title="Topic area: {{topic.area}}">{{topic.area}}</div>
               </div>
 
-              <div class="knowledge-item__block nopadding col-md-3">
+              <div class="knowledge-item__block col-md-3 col-sm-3 col-xs-2">
                 <div class="knowledge-item__wrapper--priority" title="Topic priority: {{topic.priority}}">{{topic.priority}}</div>
               </div>
 
-              <div class="knowledge-item__block nopadding col-md-2">
+              <div class="knowledge-item__block col-md-4 col-sm-4 col-xs-3">
                 <div class="knowledge-item__wrapper--percentage">
-                  <span class="knowledge-item__percentage">Completed:</span>
-                  <div>{{((goals | calculateRatio:'completed')*100).toFixed(0) +'%'}}</div>
-                </div>
-                <div class="knowledge-item__wrapper--date" title="Last modified: {{(topic | getRecentLogEntry).date | date: 'longDate'}}">
-                  {{(topic | getRecentLogEntry).date | date: 'longDate'}}
+                  <span class="knowledge-item__label">Completed:</span>
+                  <div class="knowledge-item__percentage">{{((goals | calculateRatio:'completed')*100).toFixed(0) +'%'}}</div>
+                  <div class="knowledge-item__wrapper--date" title="Last modified: {{(topic | getRecentLogEntry).date | date: 'longDate'}}">
+                    {{(topic | getRecentLogEntry).date | date: 'longDate'}}
+                  </div>
                 </div>
               </div>
 
-              <div class="knowledge-item__block nopadding col-md-1">
+              <div class="knowledge-item__block col-md-1 col-sm-1 col-xs-1">
                 <div class="knowledge-item__wrapper--score" title="Total score: {{(topic | getRecentLogEntry).score}}">
                   {{(topic | getRecentLogEntry).score}}
                 </div>

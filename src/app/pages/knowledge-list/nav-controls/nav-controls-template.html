@@ -1,3 +1,6 @@
 <a class="navbar-brand" href="#">{{userData && userData.first_name}}&nbsp;{{userData && userData.last_name}}</a>
 <button class="btn item__button item__button--start-iterview navbar-btn pull-right"
-        ng-if="authRole === 'admin' && userData" ng-click="onStartInterview()">Start interview</button>
+        ng-if="authRole === 'admin' && userData && $root.mode === 'view'" ng-click="onStartInterview()">Start interview</button>
+
+<button class="btn item__button item__button--finish-iterview navbar-btn pull-right"
+        ng-if="authRole === 'admin' && userData && $root.mode === 'interview'" ng-click="onFinishInterview()">Finish interview</button>

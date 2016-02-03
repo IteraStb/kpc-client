@@ -25,6 +25,7 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
                     knowledge_list: [{
                       'id': 'jasmine',
                       'title': 'Jasmine',
+                      'logo': 'https://avatars2.githubusercontent.com/u/4624349?v=3&s=400',
                       'area': 'fremework/lib',
                       'log': [
                         {
@@ -96,6 +97,7 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
                     {
                     'id': 'Git',
                     'title': 'Git',
+                    'logo': 'https://git-for-windows.github.io/favicon.ico',
                     'area': 'version control',
                     'log': [
                       {
