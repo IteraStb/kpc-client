@@ -1,5 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,400italic,800);
+
 body {
-  font: 20px/150% "Helvetica Neue", "Lucida Grande", Verdana, sans-serif;
+  font: 20px/150% 'Open Sans', Verdana, sans-serif;
   color: #666;
   min-width: 450px;
   background-color: @background-color;
@@ -32,14 +34,13 @@ input[disabled]{
 }
 
 nav {
-  .navbar-header{
+  .navbar-header {
     float: none;
     display: flex;
     justify-content: flex-end;
   }
 
-  .pull-right{
-    margin-right: 15px;
+  .pull-right {
     margin-left: 15px;
   }
 }
@@ -106,17 +107,17 @@ nav {
         text-align: center;
       }
 
-      .should-progress{
+      .should-progress {
         border-left: 3px solid @should-topic-color;
         background-image: linear-gradient(to right,  @should-topic-color, transparent);
       }
 
-      .could-progress{
+      .could-progress {
         border-left: 3px solid @could-topic-color;
         background-image: linear-gradient(to right,  @could-topic-color, transparent);
       }
 
-      .could-not-progress{
+      .could-not-progress {
         border-left: 3px solid @could-not-topic-color;
         background-image: linear-gradient(to right,  @could-not-topic-color, transparent);
       }
@@ -141,3 +142,18 @@ nav {
   }
 }
 
+.item__button--start-iterview {
+   background-color: @start-iterview-button__color;
+   .background-transitions-mixin();
+   &:hover {
+     background-color: @start-iterview-button__hover-color;
+   }
+}
+
+.item__button--finish-iterview {
+  background-color: @finish-interview-button__color;
+  .background-transitions-mixin();
+  &:hover {
+    background-color: @finish-interview-button__hover-color;
+  }
+}

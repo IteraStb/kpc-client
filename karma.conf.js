@@ -30,7 +30,7 @@ module.exports = function(config) {
         'src/app/pages/settings/profile/profile-controller.js',
         'src/app/pages/settings/settings-nav-controller.js',
         'src/app/pages/login/login-controller.js',
-        'src/app/pages/knowledge-list/knowledge-list-controller.js',
+        'src/app/pages/knowledge-list/content/knowledge-list-controller.js',
         'src/app/pages/base/layout-controller.js',
         'src/app/components/users-list-item/users-list-item-directive.js',
         'src/app/components/todo-list/todo-list-directive.js',
@@ -61,8 +61,8 @@ module.exports = function(config) {
         'src/app/components/todo-list/todo-list-template.html',
         'src/app/components/users-list-item/users-list-item-template.html',
         'src/app/pages/base/layout-template.html',
-        'src/app/pages/knowledge-list/content-template.html',
-        'src/app/pages/knowledge-list/nav-controls-template.html',
+        'src/app/pages/knowledge-list/content/content-template.html',
+        'src/app/pages/knowledge-list/nav-controls/nav-controls-template.html',
         'src/app/pages/login/login-template.html',
         'src/app/pages/settings/nav-controls-template.html',
         'src/app/pages/settings/profile/profile-template.html',
@@ -73,7 +73,7 @@ module.exports = function(config) {
         'src/app/filters/to-boolean.spec.js',
         'src/app/services/authorization.spec.js',
         'src/app/components/todo-list/todo-list-directive.spec.js',
-        'src/app/pages/knowledge-list/knowledge-list-controller.spec.js',
+        'src/app/pages/knowledge-list/content/knowledge-list-controller.spec.js',
         'src/app/pages/login/login-controller.spec.js'
       ],
 
