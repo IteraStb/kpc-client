@@ -58,6 +58,15 @@ module('knowledgeList')
         }
       }
     })
+    .state('interview-log', {
+      parent: 'base',
+      url: '/:userId/interview-log',
+      controller: 'InterviewLogCtrl',
+      templateUrl: 'pages/interview-log/interview-log-template.html',
+      resolve: {
+        config: 'configResolver'
+      }
+    })
     .state('knowledge_list', {
       parent: 'base',
       url: '/:userId/knowledge_list',

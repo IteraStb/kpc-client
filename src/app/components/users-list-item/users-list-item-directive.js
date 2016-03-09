@@ -10,7 +10,8 @@ angular
             scope: {
                 user: '=',
                 onViewKnowledgeList: '=',
-                onViewProfile: '='
+                onViewProfile: '=',
+                onViewInterviewLog: '='
             }
         };
     });

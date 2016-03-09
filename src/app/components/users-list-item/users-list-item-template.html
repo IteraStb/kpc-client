@@ -1,28 +1,41 @@
 <div class="list-group-item" ng-click="onViewKnowledgeList($event, user.id)">
-    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-        <div class="img-frame">
-            <img src="{{user.avatar}}" alt="{{user.first_name}} {{user.last_name}}" class="img-responsive img-circle" />
-        </div>
+  <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+    <div class="img-frame">
+      <img src="{{user.avatar}}" alt="{{user.first_name}} {{user.last_name}}" class="img-responsive img-circle"/>
     </div>
-    <div class="col-xs-6 col-sm-7 col-md-7 col-lg-7">
-        <span class="name">{{user.first_name}} {{user.last_name}}</span>&nbsp;
-        <span class="glyphicon glyphicon-envelope text-muted c-info" data-toggle="tooltip" title="{{user.email || ''}}"></span>
-        <span class="glyphicon glyphicon-list-alt text-muted c-info"
-              ng-click="onViewProfile($event, user.id)"
-              data-toggle="tooltip"
-              title="{{user.email || ''}}">
-        </span>
-        <br/>
-        <span class="additional-info">
-            <span class="text-muted">{{user.position || ''}}</span>
-        </span>
+  </div>
+  <div class="col-xs-6 col-sm-7 col-md-7 col-lg-7">
+    <span class="name">{{user.first_name}} {{user.last_name}}</span>&nbsp;
+    <span class="glyphicon glyphicon-envelope text-muted c-info" data-toggle="tooltip"
+          title="{{user.email || ''}}"></span>
+    <span class="glyphicon glyphicon-list-alt text-muted c-info"
+          ng-click="onViewProfile($event, user.id)"
+          data-toggle="tooltip"
+          title="{{user.email || ''}}">
+    </span>
+    <span class="text-muted c-info"
+          ng-click="onViewInterviewLog($event, user.id)"
+          data-toggle="tooltip"
+          title="{{user.email || ''}}">
+      <i class="fa fa-bar-chart"></i>
+    </span>
+    <br/>
+    <span class="additional-info">
+        <span class="text-muted">{{user.position || ''}}</span>
+    </span>
+  </div>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 nopadding">
+    <div class="progress-block">
+      <div class="should-progress">
+        <div>60%</div>
+      </div>
+      <div class="could-progress">
+        <div>40%</div>
+      </div>
+      <div class="could-not-progress">
+        <div>13%</div>
+      </div>
     </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding-right: 0px;">
-        <div class="progress-block">
-            <div class="should-progress"><div>60%</div></div>
-            <div class="could-progress"><div>40%</div></div>
-            <div class="could-not-progress"><div>13%</div></div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
+  </div>
+  <div class="clearfix"></div>
 </div>

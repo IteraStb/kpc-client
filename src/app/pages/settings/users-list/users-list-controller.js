@@ -21,4 +21,9 @@ angular.module('knowledgeList').controller('SettingsUsersListCtrl',
         e.stopPropagation();
       };
 
+      $scope.onViewInterviewLog = function(e, userId) {
+        $state.go('interview-log', {userId: userId});
+        e.stopPropagation();
+      }
+
     }]);
