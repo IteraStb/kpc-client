@@ -61,10 +61,11 @@ module('knowledgeList')
     .state('interview-log', {
       parent: 'base',
       url: '/:userId/interview-log',
-      controller: 'InterviewLogCtrl',
-      templateUrl: 'pages/interview-log/interview-log-template.html',
-      resolve: {
-        config: 'configResolver'
+      views: {
+        content: {
+          controller: 'InterviewLogCtrl',
+          templateUrl: 'pages/interview-log/interview-log-template.html'
+        }
       }
     })
     .state('knowledge_list', {
@@ -92,9 +93,6 @@ module('knowledgeList')
           controller: 'InterviewItemCtrl',
           templateUrl: 'pages/interview-item-details/interview-item-details.html'
         }
-      },
-      resolve: {
-        config: 'configResolver'
       }
     });
   }])

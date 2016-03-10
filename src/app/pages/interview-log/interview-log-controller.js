@@ -1,11 +1,18 @@
 angular.module('knowledgeList').controller('InterviewLogCtrl',
   ['$scope',
-    '$state',
-    'usersRepository',
-    function ($scope,
-              $state,
-              usersRepository) {
+    'interview',
+    function (
+      $scope,
+      interview
+    ) {
       'use strict';
+
+      //subscribe to the interview service promise
+      interview.getInterviewItems().then(
+        function (interviewItemsResponse) {
+          $scope.iterviewLogItems = interviewItemsResponse;
+        }
+      );
 
 
     }]);
