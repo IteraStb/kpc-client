@@ -146,6 +146,8 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
           }
         );
 
+        $scope.fullLogData = interview.flattenLogData();
+
         //merge user object with knowledge mock data
         usersRepository.getUser(userId).then(function (userData) {
           userDataMerged = angular.extend(userData, knowledgeListMock);

@@ -8,13 +8,13 @@
         <div class="item__cell item__cell--elems">
           <span class="todo-list-log todo-list-log--title">Goals:</span>
           <ul class="todo-list-log">
-            <li ng-repeat="goalItems in logItems.goals">{{goalItems}}</li>
+            <li ng-repeat="goalItems in logItems.log">{{goalItems}}</li>
           </ul>
         </div>
         <div class="item__cell item__cell--elems">
           <span class="todo-list-log todo-list-log--title">Results:</span>
           <ul class="todo-list-log">
-            <li ng-repeat="resultItems in logItems.results">{{resultItems}}</li>
+            <li ng-repeat="resultItems in logItems.log.results">{{resultItems}}</li>
           </ul>
         </div>
         <div class="item__cell item__cell--date">
