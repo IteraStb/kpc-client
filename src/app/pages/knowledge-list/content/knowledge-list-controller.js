@@ -140,13 +140,16 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
         $scope.authRole = authorization.getUserRole();
 
         //subscribe to the interview service promise
-        interview.getInterviewItems().then(
-          function (interviewItemsResponse) {
-            $scope.sessionLog = interviewItemsResponse;
-          }
-        );
+        interview.getInterviewItems()
+          .then(function (knowledgeList) {
+            interview.getLogs(knowledgeList)
+              .then(function (logs) {
+              console.log(logs);
+            });
+          });
+          
 
-        $scope.fullLogData = interview.flattenLogData();
+        //$scope.fullLogData = interview.flattenLogData();
 
         //merge user object with knowledge mock data
         usersRepository.getUser(userId).then(function (userData) {
