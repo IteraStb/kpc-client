@@ -140,14 +140,14 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
         $scope.authRole = authorization.getUserRole();
 
         //subscribe to the interview service promise
-        interview.getInterviewItems()
-          .then(function (knowledgeList) {
-            interview.getLogs(knowledgeList)
-              .then(function (logs) {
-              console.log(logs);
-            });
-          });
-          
+        // interview.getInterviewItems()
+        //   .then(function (knowledgeList) {
+        //     interview.getLogs(knowledgeList)
+        //       .then(function (logs) {
+        //       console.log(logs);
+        //     });
+        //   });
+
 
         //$scope.fullLogData = interview.flattenLogData();
 

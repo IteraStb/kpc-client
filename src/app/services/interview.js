@@ -48,6 +48,18 @@ angular.module('knowledgeList')
           return deferred.promise;
         }
 
+        function callLogs() {
+          getInterviewItems()
+            .then(function (knowledgeList) {
+              getLogs(knowledgeList)
+                .then(function (logs) {
+                  console.log(logs);
+                });
+            });
+        }
+        
+        callLogs();
+
         function getCurrentDate() {
           var today,
             mm,
@@ -69,7 +81,8 @@ angular.module('knowledgeList')
         return {
           getInterviewItems: getInterviewItems,
           getCurrentDate: getCurrentDate,
-          getLogs: getLogs
+          getLogs: getLogs,
+          callLogs: callLogs
           // getFullLogData: getFullLogData,
         };
       }]);
