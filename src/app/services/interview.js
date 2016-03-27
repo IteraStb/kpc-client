@@ -28,22 +28,35 @@ angular.module('knowledgeList')
         function getLogs(knowledgeList) {
           var deferred = $q.defer();
           var result = [];
+          var finalObject = {};
+          var tempDate;
 
             knowledgeList.forEach(function(knowledgeListItem){
               knowledgeListItem.log.forEach(function(logItem) {
-                var resultObject = {
-                  title: knowledgeListItem.title,
-                  date: logItem.date,
-                  score: logItem.score,
-                  result: logItem.results,
-                  goal: logItem.goals
-                };
-                result.push(resultObject);
+                if(logItem.date && tempDate !== logItem.date) {
+                  tempDate = logItem.date;
+
+                  var resultObject = {
+                    date: logItem.date,
+                    knowledgeInfo: {
+                      title: knowledgeListItem.title,
+                      score: logItem.score,
+                      result: logItem.results.toString(),
+                      goal: logItem.goals.toString()
+                    }
+                  };
+
+                }
+
+                angular.extend(finalObject, resultObject);
+
 
                 if(result) {
                   deferred.resolve(result);
                 }
               });
+
+              result.push(finalObject);
             });
           return deferred.promise;
         }
@@ -57,7 +70,7 @@ angular.module('knowledgeList')
                 });
             });
         }
-        
+
         callLogs();
 
         function getCurrentDate() {
