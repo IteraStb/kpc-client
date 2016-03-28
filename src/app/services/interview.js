@@ -28,35 +28,32 @@ angular.module('knowledgeList')
         function getLogs(knowledgeList) {
           var deferred = $q.defer();
           var result = [];
-          var finalObject = {};
-          var tempDate;
+          var resultObject = {};
+          var dateArray = [];
+          var dateObject = {};
 
             knowledgeList.forEach(function(knowledgeListItem){
               knowledgeListItem.log.forEach(function(logItem) {
-                if(logItem.date && tempDate !== logItem.date) {
-                  tempDate = logItem.date;
+                resultObject = {
+                  date: logItem.date,
+                  title: knowledgeListItem.title,
+                  score: logItem.score,
+                  result: logItem.results.toString(),
+                  goal: logItem.goals.toString()
+                };
 
-                  var resultObject = {
-                    date: logItem.date,
-                    knowledgeInfo: {
-                      title: knowledgeListItem.title,
-                      score: logItem.score,
-                      result: logItem.results.toString(),
-                      goal: logItem.goals.toString()
-                    }
-                  };
+                dateObject = {
+                  date: logItem.date
+                };
 
-                }
+                dateArray.push(dateObject);
 
-                angular.extend(finalObject, resultObject);
-
+                result.push(resultObject);
 
                 if(result) {
-                  deferred.resolve(result);
+                  deferred.resolve({result:result, dataArray:dateArray});
                 }
               });
-
-              result.push(finalObject);
             });
           return deferred.promise;
         }
@@ -65,8 +62,9 @@ angular.module('knowledgeList')
           getInterviewItems()
             .then(function (knowledgeList) {
               getLogs(knowledgeList)
-                .then(function (logs) {
-                  console.log(logs);
+                .then(function (dataObject) {
+                  console.log(dataObject.result);
+                  console.log(dataObject.dataArray);
                 });
             });
         }
