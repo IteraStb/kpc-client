@@ -31,6 +31,7 @@ angular.module('knowledgeList')
           var resultObject = {};
           var dateArray = [];
           var dateObject = {};
+          var dates = {};
 
             knowledgeList.forEach(function(knowledgeListItem){
               knowledgeListItem.log.forEach(function(logItem) {
@@ -42,19 +43,28 @@ angular.module('knowledgeList')
                   goal: logItem.goals.toString()
                 };
 
-                dateObject = {
-                  date: logItem.date
-                };
+                if (!dateObject[logItem.date]) {
 
-                dateArray.push(dateObject);
+                  dates = {
+                    date: logItem.date
+                  };
+
+                  dateArray.push(dates);
+                  dateObject[logItem.date] = logItem.date;
+                }
+
+                dateArray.reverse();
+
+
 
                 result.push(resultObject);
 
                 if(result) {
-                  deferred.resolve({result:result, dataArray:dateArray});
+                  deferred.resolve({result:result, dateArray:dateArray});
                 }
               });
             });
+          console.log(dateArray);
           return deferred.promise;
         }
 
@@ -64,12 +74,27 @@ angular.module('knowledgeList')
               getLogs(knowledgeList)
                 .then(function (dataObject) {
                   console.log(dataObject.result);
-                  console.log(dataObject.dataArray);
+                  //console.log(dataObject.dateArray);
+                  //normalizeDatesObject(dataObject.dateArray);
                 });
             });
         }
 
         callLogs();
+
+        // function normalizeDatesObject(dateArray) {
+        //   var reducedDates = {},
+        //     tempDate,
+        //     tempDateArray = [];
+        //
+        //     dateArray.forEach(function (dateItem) {
+        //       if(dateItem.indexOf(tempDateArray) === -1) {
+        //         tempDateArray.push(dateItem);
+        //       }
+        //     });
+        //   console.log(tempDateArray);
+        // }
+
 
         function getCurrentDate() {
           var today,
