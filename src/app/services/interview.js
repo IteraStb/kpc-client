@@ -45,17 +45,13 @@ angular.module('knowledgeList')
 
                 if (!dateObject[logItem.date]) {
 
-                  dates = {
-                    date: logItem.date
-                  };
+                  // dates = {
+                  //   date: logItem.date
+                  // };
 
-                  dateArray.push(dates);
+                  dateArray.push(logItem.date);
                   dateObject[logItem.date] = logItem.date;
                 }
-
-                dateArray.reverse();
-
-
 
                 result.push(resultObject);
 
@@ -75,25 +71,21 @@ angular.module('knowledgeList')
                 .then(function (dataObject) {
                   console.log(dataObject.result);
                   //console.log(dataObject.dateArray);
-                  //normalizeDatesObject(dataObject.dateArray);
+                  normalizeDatesArray(dataObject.dateArray);
                 });
             });
         }
 
         callLogs();
 
-        // function normalizeDatesObject(dateArray) {
-        //   var reducedDates = {},
-        //     tempDate,
-        //     tempDateArray = [];
-        //
-        //     dateArray.forEach(function (dateItem) {
-        //       if(dateItem.indexOf(tempDateArray) === -1) {
-        //         tempDateArray.push(dateItem);
-        //       }
-        //     });
-        //   console.log(tempDateArray);
-        // }
+        function normalizeDatesArray(dateArray) {
+
+            dateArray.sort(function (a, b) {
+              return a < b ? 1 : a > b ? -1 : 0;
+            });
+          console.log('This should be filtered date array', dateArray);
+        }
+
 
 
         function getCurrentDate() {
