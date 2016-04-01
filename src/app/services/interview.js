@@ -60,9 +60,11 @@ angular.module('knowledgeList')
                 }
               });
             });
-          console.log(dateArray);
+          //console.log(dateArray);
           return deferred.promise;
         }
+
+        callLogs();
 
         function callLogs() {
           getInterviewItems()
@@ -71,22 +73,31 @@ angular.module('knowledgeList')
                 .then(function (dataObject) {
                   console.log(dataObject.result);
                   //console.log(dataObject.dateArray);
-                  normalizeDatesArray(dataObject.dateArray);
+                  normalizeDatesArray(dataObject.dateArray, dataObject.result);
                 });
             });
         }
 
-        callLogs();
-
-        function normalizeDatesArray(dateArray) {
+        function normalizeDatesArray(dateArray, logs) {
+          var result = [];
 
             dateArray.sort(function (a, b) {
               return a < b ? 1 : a > b ? -1 : 0;
             });
-          console.log('This should be filtered date array', dateArray);
+          //console.log('This should be filtered date array', dateArray);
+
+          dateArray.forEach(function (dateString) {
+             var newLogs = logs.filter(function (logItem) {
+              return dateString === logItem.date
+            });
+            result.push({
+              date: dateString,
+              value: newLogs
+            });
+          });
+
+          console.log(result);
         }
-
-
 
         function getCurrentDate() {
           var today,
@@ -110,7 +121,8 @@ angular.module('knowledgeList')
           getInterviewItems: getInterviewItems,
           getCurrentDate: getCurrentDate,
           getLogs: getLogs,
-          callLogs: callLogs
+          callLogs: callLogs,
+          normalizeLogData: normalizeDatesArray
           // getFullLogData: getFullLogData,
         };
       }]);
