@@ -7,6 +7,10 @@ angular.module('knowledgeList')
         $q) {
         'use strict';
 
+        /**
+         * Gets logs from server
+         * @returns {deferred.promise|{then, catch, finally}}
+         */
         function getInterviewItems() {
           var deferred = $q.defer();
 
@@ -21,7 +25,8 @@ angular.module('knowledgeList')
         }
 
         /**
-         * Flattens received array
+         * Maps Knowledge List array to flattened array
+         * Reduces date values to unique ones
          * @param knowledgeList [Array]
          * @returns {deferred.promise|{then, catch, finally}}
          */
@@ -31,7 +36,6 @@ angular.module('knowledgeList')
           var resultObject = {};
           var dateArray = [];
           var dateObject = {};
-          var dates = {};
 
             knowledgeList.forEach(function(knowledgeListItem){
               knowledgeListItem.log.forEach(function(logItem) {
@@ -44,11 +48,6 @@ angular.module('knowledgeList')
                 };
 
                 if (!dateObject[logItem.date]) {
-
-                  // dates = {
-                  //   date: logItem.date
-                  // };
-
                   dateArray.push(logItem.date);
                   dateObject[logItem.date] = logItem.date;
                 }
@@ -60,31 +59,25 @@ angular.module('knowledgeList')
                 }
               });
             });
-          //console.log(dateArray);
+
           return deferred.promise;
         }
 
-        callLogs();
-
-        function callLogs() {
-          getInterviewItems()
-            .then(function (knowledgeList) {
-              getLogs(knowledgeList)
-                .then(function (dataObject) {
-                  console.log(dataObject.result);
-                  //console.log(dataObject.dateArray);
-                  normalizeDatesArray(dataObject.dateArray, dataObject.result);
-                });
-            });
+        function getNormalizedLogs() {
+          return getInterviewItems();
         }
 
+        /**
+         * Reverses dates array and generates array by unique dates only
+         * @param dateArray [Array]
+         * @param logs [Array]
+         */
         function normalizeDatesArray(dateArray, logs) {
           var result = [];
 
             dateArray.sort(function (a, b) {
               return a < b ? 1 : a > b ? -1 : 0;
             });
-          //console.log('This should be filtered date array', dateArray);
 
           dateArray.forEach(function (dateString) {
              var newLogs = logs.filter(function (logItem) {
@@ -95,8 +88,7 @@ angular.module('knowledgeList')
               value: newLogs
             });
           });
-
-          console.log(result);
+          return result;
         }
 
         function getCurrentDate() {
@@ -121,8 +113,7 @@ angular.module('knowledgeList')
           getInterviewItems: getInterviewItems,
           getCurrentDate: getCurrentDate,
           getLogs: getLogs,
-          callLogs: callLogs,
+          getNormalizedLogs: getNormalizedLogs,
           normalizeLogData: normalizeDatesArray
-          // getFullLogData: getFullLogData,
         };
       }]);
