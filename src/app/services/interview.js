@@ -19,6 +19,8 @@ angular.module('knowledgeList')
 
               if (logResponse.data) {
                 deferred.resolve(logResponse.data[0].knowledge_list);
+              } else {
+                deferred.reject('The log date was not loaded');
               }
             });
           return deferred.promise;
@@ -35,7 +37,6 @@ angular.module('knowledgeList')
           var result = [];
           var resultObject = {};
           var dateArray = [];
-          var dateObject = {};
 
             knowledgeList.forEach(function(knowledgeListItem){
               knowledgeListItem.log.forEach(function(logItem) {
@@ -47,10 +48,10 @@ angular.module('knowledgeList')
                   goal: logItem.goals.toString()
                 };
 
-                if (!dateObject[logItem.date]) {
-                  dateArray.push(logItem.date);
-                  dateObject[logItem.date] = logItem.date;
-                }
+                //create array with unique date items
+                processUniqueDate(logItem.date, function (uniqueDate) {
+                  dateArray.push(uniqueDate);
+                });
 
                 result.push(resultObject);
 
@@ -61,6 +62,20 @@ angular.module('knowledgeList')
             });
 
           return deferred.promise;
+        }
+
+        var dateObject = {};
+
+        /**
+         * Processes date items and keeps only unique ones
+         * @param date [String]
+         * @param uniqueDateHandler [Function]
+         */
+        function processUniqueDate(date, uniqueDateHandler) {
+          if (!dateObject[date]) {
+            uniqueDateHandler(date);
+            dateObject[date] = date;
+          }
         }
 
         function getNormalizedLogs() {

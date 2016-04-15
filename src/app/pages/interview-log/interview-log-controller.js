@@ -8,11 +8,12 @@ angular.module('knowledgeList').controller('InterviewLogCtrl',
       'use strict';
 
       //subscribe to the interview service promise
-      interview.getInterviewItems().then(
-        function (interviewItemsResponse) {
-          $scope.iterviewLogItems = interviewItemsResponse;
-        }
-      );
-
-
+      //put flattened log data to scope
+      interview.getNormalizedLogs().
+      then(function (knowledgeList) {
+        interview.getLogs(knowledgeList)
+          .then(function (dataObject) {
+            $scope.interviewHistory = interview.normalizeLogData(dataObject.dateArray, dataObject.result);
+          });
+      });
     }]);

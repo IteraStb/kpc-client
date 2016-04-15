@@ -12,7 +12,7 @@ angular.module('knowledgeList').controller('SettingsUsersListCtrl',
       });
 
       $scope.onViewKnowledgeList = function (e, userId) {
-        $state.go('knowledge_list', {userId: userId});
+        $state.go('knowledge-list', {userId: userId});
         e.stopPropagation();
       };
 

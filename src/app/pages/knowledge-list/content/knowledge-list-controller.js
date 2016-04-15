@@ -140,14 +140,14 @@ angular.module('knowledgeList').controller('KnowledgeListCtrl',
         $scope.authRole = authorization.getUserRole();
 
         //put flattened log data to scope
-        interview.getNormalizedLogs().
-          then(function (knowledgeList) {
-            interview.getLogs(knowledgeList)
-              .then(function (dataObject) {
-                $scope.interviewLog = interview.normalizeLogData(dataObject.dateArray, dataObject.result);
-                console.log($scope.interviewLog);
-              });
-        });
+        // interview.getNormalizedLogs().
+        //   then(function (knowledgeList) {
+        //     interview.getLogs(knowledgeList)
+        //       .then(function (dataObject) {
+        //         $scope.interviewLog = interview.normalizeLogData(dataObject.dateArray, dataObject.result);
+        //         console.log($scope.interviewLog);
+        //       });
+        // });
 
         //merge user object with knowledge mock data
         usersRepository.getUser(userId).then(function (userData) {

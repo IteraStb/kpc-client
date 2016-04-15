@@ -50,7 +50,7 @@ module('knowledgeList')
     })
     .state('settings.users_list', {
       parent: 'settings',
-      url: '/:userId/settings/users_list',
+      url: '/:userId/settings/users-list',
       views: {
         settingsContent: {
           controller: 'SettingsUsersListCtrl',
@@ -68,9 +68,9 @@ module('knowledgeList')
         }
       }
     })
-    .state('knowledge_list', {
+    .state('knowledge-list', {
       parent: 'base',
-      url: '/:userId/knowledge_list',
+      url: '/:userId/knowledge-list',
       views: {
         navcontrols: {
           controller: 'KnowledgeListNavCtrl',
