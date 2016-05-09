@@ -94,15 +94,15 @@ angular.module('knowledgeList')
               return a < b ? 1 : a > b ? -1 : 0;
             });
 
-          dateArray.forEach(function (dateString) {
-             var newLogs = logs.filter(function (logItem) {
-              return dateString === logItem.date
+            dateArray.forEach(function (dateString) {
+               var newLogs = logs.filter(function (logItem) {
+                return dateString === logItem.date
+              });
+              result.push({
+                date: dateString,
+                value: newLogs
+              });
             });
-            result.push({
-              date: dateString,
-              value: newLogs
-            });
-          });
           return result;
         }
 

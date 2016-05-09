@@ -1,0 +1,24 @@
+.list-group {
+  .list-group-item {
+    border-radius: 0;
+    margin-bottom: 5px;
+    .background-transitions-mixin();
+    &:hover {
+      background-color: @list-item__backgrpund-color;
+    }
+  }
+}
+
+.interview-list-items--wrapper {
+  font-size: @font-size_base;
+  .interview-list-items--title {
+    font-size: @font-size_l;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .interview-items-wrapper {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
