@@ -1,3 +1,8 @@
+v0.1.0-7
+======================
+* Added interview-log page
+* Added the interview service to process data for the interview-log page and interview pages
+
 v0.1.0-6
 ======================
 * Refactor sortable accordion directive template styles for consistency

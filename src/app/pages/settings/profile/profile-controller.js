@@ -31,7 +31,7 @@ angular.
 
                         $modal.open({
                             scope: scope,
-                            templateUrl: '/components/modal/success-template.html',
+                            templateUrl: '/components/modal/success-template.html'
                         });
                     }, function(err){
                         var scope = $rootScope.$new();
@@ -42,7 +42,7 @@ angular.
 
                         $modal.open({
                             scope: scope,
-                            templateUrl: '/components/modal/error-template.html',
+                            templateUrl: '/components/modal/error-template.html'
                         });
                     });
             };
@@ -57,7 +57,7 @@ angular.
 
                         $modal.open({
                             scope: scope,
-                            templateUrl: '/components/modal/success-template.html',
+                            templateUrl: '/components/modal/success-template.html'
                         });
                     }, function(err){
                         var errMsg = utils.getErrorMsg(err.error);
@@ -68,7 +68,7 @@ angular.
 
                         $modal.open({
                             scope: scope,
-                            templateUrl: '/components/modal/error-template.html',
+                            templateUrl: '/components/modal/error-template.html'
                         });
                     });
             };

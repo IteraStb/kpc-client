@@ -61,8 +61,8 @@ angular.
                 function getDefaultPage(){
                     var role = _getAuthorizedUserRole();
                     var defaultPages = {
-                        admin: 'settings.users_list',
-                        regular: 'knowledge_list'
+                        admin:   'settings.users_list',
+                        regular: 'knowledge-list'
                     };
 
                     return defaultPages[role];

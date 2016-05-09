@@ -6,8 +6,8 @@
         "icon": "glyphicon-user"
     },
     {
-        "id": "users_list",
+        "id": "users-list",
         "name": "Users",
-        "state": "settings.users_list"
+        "state": "settings.users-list"
     }
 ]

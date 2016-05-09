@@ -1,0 +1,21 @@
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="interviewItem in interviewHistory">
+    <div class="interview-list-items--wrapper">
+      <span class="interview-list-items--title">{{interviewItem.date}}</span>
+      <div class="interview-items-wrapper clearfix" ng-repeat="logItem in interviewItem.value">
+        <div class="col-xs-2 col-sm-2 nopadding">
+          {{logItem.title}}
+        </div>
+        <div class="col-xs-4 col-sm-4 nopadding">
+          {{logItem.goal}}
+        </div>
+        <div class="col-xs-4 col-sm-4 nopadding">
+          {{logItem.result}}
+        </div>
+        <div class="col-xs-2 col-sm-2 nopadding">
+          {{logItem.score}}
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

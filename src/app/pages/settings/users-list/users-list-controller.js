@@ -12,7 +12,7 @@ angular.module('knowledgeList').controller('SettingsUsersListCtrl',
       });
 
       $scope.onViewKnowledgeList = function (e, userId) {
-        $state.go('knowledge_list', {userId: userId});
+        $state.go('knowledge-list', {userId: userId});
         e.stopPropagation();
       };
 
@@ -20,5 +20,10 @@ angular.module('knowledgeList').controller('SettingsUsersListCtrl',
         $state.go('settings.profile', {userId: userId});
         e.stopPropagation();
       };
+
+      $scope.onViewInterviewLog = function(e, userId) {
+        $state.go('interview-log', {userId: userId});
+        e.stopPropagation();
+      }
 
     }]);
